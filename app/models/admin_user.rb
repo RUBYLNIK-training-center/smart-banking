@@ -1,3 +1,3 @@
 class AdminUser < ApplicationRecord
-    has_many :news
+  has_many :news
 end
