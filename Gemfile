@@ -53,5 +53,11 @@ group :development do
   gem "letter_opener", "~> 1.7"
 end
 
+group :test do
+  gem "factory_bot_rails", "~> 6.2"
+  gem "faker", "~> 2.18"
+  gem "capybara", "~> 3.35"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
