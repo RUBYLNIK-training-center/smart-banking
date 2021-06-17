@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Registrations', type: :system do
-  before do
-    driven_by(:rack_test)
-  end
+  before { driven_by(:rack_test) }
 
   let(:user) { FactoryBot.create(:user) }
 
