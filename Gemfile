@@ -37,6 +37,7 @@ group :development, :test do
   gem "rubocop", "~> 1.17"
   gem "rubocop-rails", "~> 2.10"
   gem "rubocop-rspec", "~> 2.4"
+  gem 'mail', '~> 2.7', '>= 2.7.1'
 end
 
 group :development do
