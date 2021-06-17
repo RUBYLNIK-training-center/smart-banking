@@ -28,3 +28,12 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
