@@ -7,6 +7,9 @@ class User < ApplicationRecord
   email: true # or devise reg_exp when devise will be added --- format: { with: Devise.email_regexp }
 
   validates :password, length: { in: 6..20 }
+  
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   has_many :wallets
   validates_associated :wallets
