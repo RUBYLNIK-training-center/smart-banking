@@ -10,7 +10,14 @@ before_script:
   - bundle install --jobs=3 --retry=3
   - yarn
   - bundle exec rake db:create
-  - bundle exec rake db:schema:load
+  - bundle exec rake db:migrate
 script:
   - bundle exec rspec
   - bundle exec rubocop
+deploy:
+  provider: heroku
+  api_key:
+    secure: hqS0EVBsj6KAvyBwISmEr328J8GkaDzbcHDliH36P1rE2fLhyDdzUk/X6iO9m/JTrk+kuzlZeW1v+oKzJ1FPteX4rJoSR4VnthEc/xDN6IjOfMskq040XxxFy3cxh7Ddwqq4liKIUlWcKefH1B8HInnizzcWe70+E0aXyxoCo7jaHosyBROzghWJs0GuIsvZdQIPrK3LTjbsWlveN/U7JFNhm5uyblAAPo8jvaDzOy6ZnD++3Pmnnx+e7ZBNTWmVX30RgNtr4DqLFYkgrA9iAgo8YKVNZVt/Y+CAM3c6G8gGNrI0hEPirx4gv5xw/N+UcFxIlkoW3GGe7E4dQpG4Ty9eytDnSbsBoe0ChvUChd+PRt9/KVXuKsWM9jhenHlM1wBH9s1SoznQektkbiIE2Yvd3qUOlvrrWBn0VkHDccaxJA+evCBOxWCWYpBjGQS0Maazl5ZHcIEbt2FlaHZswOjEJGIIm7q6V6U2+fwGORh/DgzgyAXZN9sSjzaKSctUcFlCXdrKB8WlTle4NAnKPVqDM/kM7cDI0SpPRERogZH45hWYyv16QYYqUyRkIrCxf6Rj5dC3bncPBZmgrBhGHiqcgsC87Ut0Nh1CYoyKcVzzYFpgygXASohhfEHZWoSaanFFALxgih4esZIUi6/7bxlFjkgJ7A3ATqNJjKu0LJA=
+  app: ancient-peak-34771
+  on:
+    repo: RUBYLNIK-training-center/smart-banking
