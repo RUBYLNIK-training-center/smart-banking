@@ -7,6 +7,6 @@ class AdminUser < ApplicationRecord
 
   validates :password, length: { in: 6..20 }
   
-  has_many :news
   validates_associated :news
+  has_many :news, dependent: :nullify
 end

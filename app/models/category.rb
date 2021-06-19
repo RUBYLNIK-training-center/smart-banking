@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   validates :name, presence: true
 
-  has_many :services
   validates_associated :services
+  has_many :services, dependent: :nullify
 end
