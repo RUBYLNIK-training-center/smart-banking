@@ -1,0 +1,12 @@
+pre-push:
+  commands:
+    rspec:
+      tags: backend tests
+      run: rspec
+
+pre-commit:
+  commands:
+    rubocop:
+      tags: backend style
+      glob: "*.rb"
+      run: rubocop

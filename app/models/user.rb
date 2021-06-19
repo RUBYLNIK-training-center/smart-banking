@@ -1,3 +1,6 @@
 class User < ApplicationRecord
-  has_many :wallets
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  has_many :wallets, dependent: :nullify
 end
