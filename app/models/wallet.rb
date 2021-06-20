@@ -3,5 +3,5 @@ class Wallet < ApplicationRecord
 
   belongs_to :currency
   belongs_to :user
-  has_many :transactions, dependent: :nullify
+  has_many :transactions
 end

@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Currency, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it 'has presence validate', :aggregate_failures do
+      expect(subject).to validate_presence_of(:rate)
+    end
+  end
 end
