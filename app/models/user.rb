@@ -21,4 +21,12 @@ class User < ApplicationRecord
                         email: data['email'],
                         password: Devise.friendly_token[0, 20])
   end
+
+  def lock!
+    update(locked: true)
+  end
+
+  def unlock!
+    update(locked: false)
+  end
 end

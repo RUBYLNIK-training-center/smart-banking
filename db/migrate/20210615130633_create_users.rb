@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :avatar
       t.string :phone_number
       t.string :passport_number
+      t.boolean :locked, default: false
 
       t.timestamps
     end

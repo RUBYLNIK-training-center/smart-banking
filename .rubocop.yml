@@ -27,6 +27,7 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
+    - app/admin/*
     - spec/**/*
 
 RSpec/ExampleLength:
