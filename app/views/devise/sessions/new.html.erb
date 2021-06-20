@@ -35,7 +35,15 @@
                     <% end %>
 
                     <div class="actions mt-4">
-                        <%= f.submit "Log in", class: "btn btn-primary" %> or <%= render "devise/shared/links" %>
+                        <%= f.submit "Log in", class: "btn btn-primary" %>
+                        
+                        <div class="mt-4">
+                            <%= render "devise/shared/links" %>
+                        </div>
+
+                        <div class="mt-4">
+                            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "btn btn-danger", method: :post %>
+                        </div>
                     </div>
                 <% end %>
             </div>

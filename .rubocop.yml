@@ -22,6 +22,9 @@ Style/FrozenStringLiteralComment:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
