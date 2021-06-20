@@ -1,3 +1,6 @@
 class AdminUser < ApplicationRecord
-  has_many :news, dependent: :nullify
+  validates :name, presence: true
+  validates_associated :posts
+
+  has_many :posts, dependent: :nullify
 end
