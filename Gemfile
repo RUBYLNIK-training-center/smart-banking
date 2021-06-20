@@ -51,7 +51,7 @@ group :development do
   gem 'spring'
   # Preview email in the default browser instead of sending it
   gem "letter_opener", "~> 1.7"
-  # gem "lefthook", "~> 0.7.6"
+  gem "lefthook", "~> 0.7.6"
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
 end
 

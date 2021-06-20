@@ -2,5 +2,5 @@ class AdminUser < ApplicationRecord
   validates :name, presence: true
   validates_associated :posts
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 end

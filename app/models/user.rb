@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   validates_associated :wallets
 
-  has_many :wallets
-  has_many :subscriptions
+  has_many :wallets, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
 end
