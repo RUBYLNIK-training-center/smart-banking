@@ -12,6 +12,8 @@ RSpec.describe 'Registrations', type: :system do
       fill_in 'user_email', with: 'test@mail.com'
       fill_in 'user_password', with: 'password'
       fill_in 'user_password_confirmation', with: 'password'
+      fill_in 'user_name', with: 'name'
+      fill_in 'user_age', with: 18
 
       click_button 'Register now'
       expect(page).to have_content 'Welcome! You have signed up successfully.'
