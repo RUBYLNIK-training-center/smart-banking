@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  def show; end
+  def show
+    @user = current_user
+  end
 
   def edit; end
 
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:id, :name, :surname, :age, :email, :avatar, :phone_number, :passport_number,
-                                 :password)
+    params.require(:user).permit(:name, :surname, :age, :email, :avatar, :phone_number, :passport_number, :password,
+                                 :password_confirmation)
   end
 end

@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#"><%= link_to 'Home', root_path, class: 'nav-link' %></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><%= link_to 'User Profile', edit_user_registration_path, class: 'nav-link' %></a>
+                    <a class="nav-link" href="#"><%= link_to 'User Profile', user_path(current_user), class: 'nav-link' %></a>
                 </li>
             </ul>
 
