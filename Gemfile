@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for authentication
 gem "devise", "~> 4.8"
+# Use google authentication
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "omniauth-google-oauth2", "~> 1.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -53,6 +56,11 @@ group :development do
   # Preview email in the default browser instead of sending it
   gem "letter_opener", "~> 1.7"
   gem "lefthook", "~> 0.7.6"
+  # load env vars from .env into ENV
+  gem "dotenv-rails", "~> 2.7"
+
+  gem "pry-byebug", "~> 3.9"
+  gem "pry-rails", "~> 0.3.9"
 end
 
 group :test do
