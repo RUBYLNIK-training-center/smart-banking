@@ -3,9 +3,7 @@ class User < ApplicationRecord
   has_many :wallets, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
-  validates :age, presence: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
-
-  validates_associated :wallets
+  validates :age, allow_nil: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -14,12 +12,11 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data = access_token.info
-    user = User.find_by(email: data['email'])
-
-    user || User.create(name: data['first_name'],
-                        surname: data['last_name'],
-                        email: data['email'],
-                        password: Devise.friendly_token[0, 20])
+    User.where(email: data['email']).first_or_create do |u|
+      u.name = data['first_name']
+      u.surname = data['last_name']
+      u.password = Devise.friendly_token[0, 20]
+    end
   end
 
   def lock!
