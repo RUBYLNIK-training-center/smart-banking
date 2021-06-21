@@ -58,6 +58,9 @@ group :development do
   gem "lefthook", "~> 0.7.6"
   # load env vars from .env into ENV
   gem "dotenv-rails", "~> 2.7"
+
+  gem "pry-byebug", "~> 3.9"
+  gem "pry-rails", "~> 0.3.9"
 end
 
 group :test do
