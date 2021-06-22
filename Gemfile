@@ -32,7 +32,7 @@ gem "omniauth-google-oauth2", "~> 1.0"
 gem "activeadmin", "~> 2.9"
 gem "active_material", github: "vigetlabs/active_material"
 # use i18n for internationalization and localization 
-gem 'i18n', '~> 1.8', '>= 1.8.10'
+gem 'rails-i18n', '~> 6.0.0'
 
 gem 'date_validator', '~> 0.11.0'
 # Reduces boot times through caching; required in config/boot.rb
