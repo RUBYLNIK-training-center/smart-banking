@@ -3,6 +3,7 @@ require:
   - rubocop-rails
 
 AllCops:
+  NewCops: enable
   Exclude:
     - "db/**/*"
     - "script/**/*"
@@ -27,6 +28,7 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
+    - app/admin/*
     - spec/**/*
 
 RSpec/ExampleLength:
