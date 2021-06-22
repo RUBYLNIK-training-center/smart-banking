@@ -1,1 +1,21 @@
-<h1>Welcome to SmartBanking!</h1>
+<div class=news style="margin-left: 425px; margin-top: 100px; margin-bottom: 60px">
+<h1>News</h1>
+</div>
+
+
+<% @posts.each do |post|%>
+	<div class=post style="margin-left: 100px; margin-right: 100px">
+		<div class="line" style="width: 730px">
+			<hr>
+		</div>
+		<h2><%= post.name %></h2>
+	  <p style="font-size: 23px"><%= post.description.slice(0..60) + '...' %></p>
+		<div style="margin-top: -15px;">
+		  <a href="http://localhost:3000/posts/<%=post.id%>">Показать полностью</a><br>
+		 </div>
+	   <small style="margin-left: 550px">by <%= post.created_at%></small>
+	   <div class="line" style="width: 730px">
+				<hr>
+		</div>
+	</div>
+<% end %>
