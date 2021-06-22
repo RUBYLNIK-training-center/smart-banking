@@ -32,3 +32,6 @@
 en:
   active_admin:
     posts: "Posts"
+    news: "News"
+  home:
+    welcome: "Welcome to SmartBanking!"

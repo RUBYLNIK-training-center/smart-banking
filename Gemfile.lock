@@ -423,6 +423,7 @@ DEPENDENCIES
   ed25519 (~> 1.2)
   factory_bot_rails (~> 6.2)
   faker (~> 2.18)
+  i18n (~> 1.8, >= 1.8.10)
   jbuilder (~> 2.7)
   kaminari
   lefthook (~> 0.7.6)
