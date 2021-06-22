@@ -1,3 +1,9 @@
 ru:
+  global:
+    menu:
+      about_us: "О нас"
+      sign_in: "Вход"
+      sign_out: "Выход"
+      sign_up: "Зарегистрироваться"
   home:
     welcome: "Добро пожаловать в SmartBanking!"
