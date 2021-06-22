@@ -1,6 +1,18 @@
 ActiveAdmin.register User do
   actions :all, except: %i[new create update destroy edit]
 
+  batch_action :lock, priority: 1 do |ids|
+    batch_action_collection.where(id: ids).find_each(&:lock!)
+
+    redirect_to collection_path, notice: 'The users have been locked.'
+  end
+
+  batch_action :unlock do |ids|
+    batch_action_collection.where(id: ids).find_each(&:unlock!)
+
+    redirect_to collection_path, notice: 'The users have been unlocked.'
+  end
+
   index do
     selectable_column
     id_column
