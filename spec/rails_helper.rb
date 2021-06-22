@@ -6,6 +6,7 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require_relative 'support/controller_macros'
+require_relative 'support/system_macros'
 require 'capybara/rspec'
 
 Shoulda::Matchers.configure do |config|
@@ -53,6 +54,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.extend ControllerMacros, type: :controller
+  config.extend SystemMacros, type: :system
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false

@@ -28,6 +28,9 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "omniauth-google-oauth2", "~> 1.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# Use ActiveAdmin for admin CRM
+gem "activeadmin", "~> 2.9"
+gem "active_material", github: "vigetlabs/active_material"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
