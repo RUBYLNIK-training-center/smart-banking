@@ -1,10 +1,10 @@
-<div class="news_title">
+<div class="text-center mt-5">
 	<h1><mark><%= @post.name %></mark></h1>
 </div>
 
 <div class="container">
   <div class="row">     
-    <div class="text-justify">
+    <div class="text-left">
     	<%= @post.description %>
     </div>
   </div>
@@ -12,7 +12,7 @@
 
 <div class="container">
 	<div class="row top-buffer"> 
-		<div class="date_title">	
+		<div class="mt-4 text-right">	
 		  <footer class="blockquote-footer">by <cite title="Created_at"><%= @post.created_at%> </cite></footer>
 		</div>
 	</div>
