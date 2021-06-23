@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations', 
     omniauth_callbacks: 'users/omniauth_callbacks' 
   }
+
+  resources :users
+  
   ActiveAdmin.routes(self)
   
   get 'home/index'
+  get '/about', to: 'home#about'
   root 'home#index'
 end

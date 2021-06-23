@@ -1,0 +1,67 @@
+<div class="col-md-8 ">
+  <div class="card mb-3">
+    <div class="card-body">
+      <%= form_for(user) do |f| %>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Name</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :name, :placeholder => "Write your new name", class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Surname</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :surname, :placeholder => "Write your new surname", class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Age</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :age, :placeholder => "Change your age", class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Avatar</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.file_field :avatar, class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Phone number</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :phone_number, :placeholder => "Change your phone number", class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Passport number</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <%= f.text_field :passport_number, :placeholder => "Change your passport number", class: "form-control" %>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= f.submit "Update profile", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
