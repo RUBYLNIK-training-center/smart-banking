@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   
   get 'home/index'
   root 'home#index'
-  get '/posts/:id', to: 'post#show'
+ 	resources :post, only: :show
 end

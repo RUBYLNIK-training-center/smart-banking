@@ -1,21 +1,16 @@
-<div class=news style="margin-left: 425px; margin-top: 100px; margin-bottom: 60px">
+<div>
 <h1>News</h1>
 </div>
 
-
+<div class="container">
 <% @posts.each do |post|%>
-	<div class=post style="margin-left: 100px; margin-right: 100px">
-		<div class="line" style="width: 730px">
-			<hr>
-		</div>
-		<h2><%= post.name %></h2>
-	  <p style="font-size: 23px"><%= post.description.slice(0..60) + '...' %></p>
-		<div style="margin-top: -15px;">
-		  <a href="http://localhost:3000/posts/<%=post.id%>">Показать полностью</a><br>
-		 </div>
-	   <small style="margin-left: 550px">by <%= post.created_at%></small>
-	   <div class="line" style="width: 730px">
-				<hr>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-12">
+    		<h2><%= post.name %></h2>
+    		<%= post.description.slice(0..60) + '...' %>
+    		<%= link_to "Show more", post_path(post) %> <br> 	
+    		by <%= post.created_at%>
+    </div>
+  </div>
 <% end %>
+</div>
