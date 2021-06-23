@@ -15,9 +15,7 @@ RSpec.describe '/users', type: :request do
     }
   end
 
-  before do
-    user
-  end
+  before { user }
 
   describe 'GET /show' do
     context 'when an user was redirected to his profile' do
