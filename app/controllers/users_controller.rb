@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = user
   end
 
   def edit
-    @user = current_user
+    @user = user
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = user
 
     respond_to do |format|
       if @user.update(user_params)
@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user
+    @user ||= User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :surname, :age, :email, :avatar, :phone_number, :passport_number, :password,
