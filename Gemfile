@@ -32,6 +32,7 @@ gem "omniauth-google-oauth2", "~> 1.0"
 gem "activeadmin", "~> 2.9"
 gem "active_material", github: "vigetlabs/active_material"
 
+gem 'date_validator', '~> 0.11.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -72,6 +73,8 @@ group :test do
   gem "capybara", "~> 3.35"
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
   gem 'date_validator', '~> 0.11.0'
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
