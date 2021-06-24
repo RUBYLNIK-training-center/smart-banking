@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def update
     @user = user
+    @user.avatar.edit(params[:avatar])
 
     respond_to do |format|
       if @user.update(user_params)
