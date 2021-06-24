@@ -8,8 +8,14 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
+                    <%= link_to 'About us', '/about', class: 'nav-link' %>
                 </li>
+                <li class="nav-item">
+                    <%= link_to 'Home', root_path, class: 'nav-link' %>
+                </li>
+                <% if current_user %>
+                  <%= link_to 'User Profile', user_path(current_user), class: 'nav-link' %>
+                <% end %>
             </ul>
 
             <ul class="navbar-nav ml-auto">
