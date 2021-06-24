@@ -1,6 +1,5 @@
 ActiveAdmin.register Post do
   form do |f|
-    f.label "Author id is #{current_admin_user.id}", class: 'label'
     f.inputs do
       f.input :name
       f.input :description
