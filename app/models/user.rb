@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :wallets, dependent: :destroy
+  has_one_attached :avatar
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :age, allow_nil: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
