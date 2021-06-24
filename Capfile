@@ -13,6 +13,7 @@ install_plugin Capistrano::Puma::Systemd
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
-set :puma_systemctl_user, :user
+set :puma_systemctl_user, :system
+set :puma_service_unit_name, 'puma'
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
