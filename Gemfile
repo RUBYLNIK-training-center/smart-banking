@@ -72,7 +72,6 @@ group :test do
   gem "faker", "~> 2.18"
   gem "capybara", "~> 3.35"
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
-  gem 'date_validator', '~> 0.11.0'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
 
 end
