@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  paginates_per 5
+  default_scope { order(created_at: :desc) }
   belongs_to :admin_user, class_name: 'AdminUser'
 
   validates :name, presence: true, length: { minimum: 2 }
-  default_scope { order(created_at: :desc) }
+  paginates_per 5
 end
