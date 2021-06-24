@@ -64,6 +64,16 @@ group :development do
 
   gem "pry-byebug", "~> 3.9"
   gem "pry-rails", "~> 0.3.9"
+
+  # Use capistrano for deploy
+  gem "capistrano", "~> 3.16"
+  gem "capistrano-bundler", "~> 2.0"
+  gem "capistrano-rails", "~> 1.6"
+  gem "capistrano3-puma", "~> 5.0"
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem "ed25519", "~> 1.2"
+  gem "bcrypt_pbkdf", "~> 1.1"
+
 end
 
 group :test do
