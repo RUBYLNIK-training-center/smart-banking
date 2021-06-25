@@ -8,6 +8,7 @@
 * Postgresql
 * Redis
 * Bootstrap
+
 ### Run app locally
 * Clone repo: `git@github.com:RUBYLNIK-training-center/smart-banking.git`
 * Install dependencies: `bundle install` 
