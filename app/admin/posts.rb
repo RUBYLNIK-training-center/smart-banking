@@ -4,12 +4,11 @@ ActiveAdmin.register Post do
       f.input :name
       f.input :description
     end
-    f.submit "Create post", class: "btn btn-primary"
+    f.submit 'Create post', class: 'btn btn-primary'
   end
 
   member_action :create, method: :post do
-    post = Post.new(name: params[:post][:name], description: params[:post][:description])
-    post.admin_user_id = current_admin_user.id
+    post = current_admin_user.posts.new(name: params[:post][:name], description: params[:post][:description])
     post.save
     redirect_to admin_post_path(post)
   end
