@@ -1,13 +1,13 @@
 # smart-banking
 ## Quick start
 
-### Requirements
-* Ruby 2.7.2
-* Git
+### Our tech stack
+* Rails
+* Puma
+* Nginx
 * Postgresql
-* Nodejs
-* Yarn
-  
+* Redis
+* Bootstrap
 ### Run app locally
 * Clone repo: `git@github.com:RUBYLNIK-training-center/smart-banking.git`
 * Install dependencies: `bundle install` 
@@ -18,14 +18,13 @@
 ### Deploy
 We are using [capistrano](https://github.com/capistrano/capistrano) for deployment
 
-* Add ssh key to production server: `ssh-copy-id deploy@45.138.72.169`
+* Add your ssh key to production server: `ssh-copy-id <deploy-user>@<deploy-ip>`
 * Stop puma: `bundle exec cap production puma:stop`
 * Run deploy: `bundle exec cap production deploy`
-* Start puma: `bundle exec cap production puma:start`
 
 ### Our team
 * [Boris Tsarikov](https://github.com/B0RlS) (Mentor)
-* [Егор Воробьев](https://github.com/Captain-Vorobey)
-* [Елизавета Муромская](https://github.com/lizamuromskaya)
-* [Виталий Гавриленя](https://github.com/vitalygv)
-* [Владислав Митин](https://github.com/m3xq)
+* [Egor Vorobyov](https://github.com/Captain-Vorobey)
+* [Lizaveta Muromskaya](https://github.com/lizamuromskaya)
+* [Vitaly Gavrilenya](https://github.com/vitalygv)
+* [Vladislav Mitin](https://github.com/m3xq)
