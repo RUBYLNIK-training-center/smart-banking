@@ -12,7 +12,7 @@
 ### Run app locally
 * Clone repo: `git@github.com:RUBYLNIK-training-center/smart-banking.git`
 * Install dependencies: `bundle install` 
-* Create database: `bundle exec rails db:setup`
+* Create database: `bundle exec rails db:create db:migrate db:seed`
 * Install front-end dependencies: `yarn`
 * Run server: `bundle exec rails s`
 
