@@ -8,7 +8,7 @@
     <div class="col-12">
     		<h2><%= post.name %></h2>
     		<%= post.description.slice(0..160) + '...' %>
-    		<%= link_to t(post.show_more), post_path(post) %> <br>
+    		<%= link_to t('post.show_more'), post_path(post) %> <br>
         <em>
           <%= l(post.created_at, format: '%e %B %Y') %>
           at <%= l(post.created_at, format: '%H:%M') %></em>
