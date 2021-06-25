@@ -1,5 +1,5 @@
 <h1>
-  <%= "Editing" %>
+  <%= t('users.editing') %>
 </h1>
 <%= render 'form', user: @user %>
-<%= link_to 'Back', user_url, class: "btn btn-primary" %>
+<%= link_to t('users.back'), user_url, class: "btn btn-primary" %>

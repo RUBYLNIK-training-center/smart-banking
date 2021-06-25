@@ -20,7 +20,7 @@ RSpec.describe '/users', type: :request do
   describe 'GET /show' do
     context 'when an user was redirected to his profile' do
       it 'renders user profile', :aggregate_failures do
-        get user_url(user)
+        get user_url(user, locale: :en)
 
         expect(response).to have_http_status(:ok)
         expect(response.body).to include(user.name)
@@ -32,7 +32,7 @@ RSpec.describe '/users', type: :request do
   describe 'GET /edit' do
     context 'when an user was redirected to edit profile page' do
       it 'render the edit user page', :aggregate_failures do
-        get edit_user_url(user)
+        get edit_user_url(user, locale: :en)
 
         expect(response).to have_http_status(:ok)
         expect(response.body).to include('Editing')
@@ -56,7 +56,7 @@ RSpec.describe '/users', type: :request do
 
       it 'updates user attributes and redirects to user page', :aggregate_failures do
         expect do
-          patch user_url(user), params: { user: new_attributes }
+          patch user_url(user, locale: :en), params: { user: new_attributes }
           user.reload
         end.to change(user, :name).to('Test name')
                                   .and change(user, :surname).to('Test surname')

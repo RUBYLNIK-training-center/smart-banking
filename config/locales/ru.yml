@@ -1,0 +1,35 @@
+ru:
+  active_admin:
+    news: "Новости"
+  global:
+    menu:
+      about_us: "О нас"
+      sign_in: "Вход"
+      sign_out: "Выход"
+      sign_up: "Зарегистрироваться"
+      home: "Домой"
+      user_profile: "Профиль"
+  home:
+    welcome: "Добро пожаловать в SmartBanking!"
+  post:
+    show_more: "Показать больше"
+  users:
+    name: "Имя"
+    surname: "Фамилия"
+    age: "Возраст"
+    avatar: "Аватар"
+    phone_number: "Номер телефона"
+    passport_number: "Номер паспорта"
+    update_profile: "Обновить профиль"
+    name_placeholder: "Введите новое имя"
+    surname_placeholder: "Введите новую фамилию"
+    age_placeholder: "Введите новый возраст"
+    phone_placeholder: "Введите новый номер телефона"
+    passport_placeholder: "Введите новое номер паспорта"
+    editing: "Изменение"
+    back: "Назад"
+    upload_image: "Загрузить изображение"
+    your_wallets: "Ваши кошельки:"
+    add_wallet: "Добавить кошелек"
+    email: "Эл. почта"
+    edit: "Изменить"

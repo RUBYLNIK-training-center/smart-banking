@@ -32,3 +32,36 @@
 en:
   active_admin:
     posts: "Posts"
+    news: "News"
+  global:
+    menu:
+      about_us: "About us"
+      sign_in: "Sign In"
+      sign_out: "Sign Out"
+      sign_up: "Sign Up"
+      home: "Home"
+      user_profile: "User profile"
+  home:
+    welcome: "Welcome to SmartBanking!"
+  post:
+    show_more: "Show more"
+  users:
+    name: "Name"
+    surname: "Surname"
+    age: "Age"
+    avatar: "Avatar"
+    phone_number: "Phone number"
+    passport_number: "Passport number"
+    update_profile: "Update profile"
+    name_placeholder: "Write your new name"
+    surname_placeholder: "Write your new surname"
+    age_placeholder: "Change your age"
+    phone_placeholder: "Change your phone number"
+    passport_placeholder: "Change your passport number"
+    editing: "Editing"
+    back: "Back"
+    upload_image: "Upload image"
+    your_wallets: "Your wallets:"
+    add_wallet: "Add wallet"
+    email: "Email"
+    edit: "Edit"
