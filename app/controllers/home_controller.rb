@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+  	@posts = Post.page(params[:page])
+  end
 
   def about; end
 end

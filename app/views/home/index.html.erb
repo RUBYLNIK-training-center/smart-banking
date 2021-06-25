@@ -1,1 +1,22 @@
-<h1>Welcome to SmartBanking!</h1>
+<div class='text-center mt-5'>
+<h1>News</h1>
+</div>
+
+
+<div class="container">
+<% @posts.each do |post|%>
+  <div class="row mt-5">
+    <div class="col-12">
+    		<h2><%= post.name %></h2>
+    		<%= post.description.slice(0..160) + '...' %>
+    		<%= link_to "Show more", post_path(post) %> <br> 	
+    		<!-- by <%= post.created_at%> -->
+        <em>
+          <%= l(post.created_at, format: '%e %B %Y') %>
+          at <%= l(post.created_at, format: '%H:%M') %></em>
+
+    </div>
+  </div>
+<% end %>
+</div>
+<%= paginate @posts %>

@@ -1,16 +1,15 @@
 ActiveAdmin.register Post do
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  permit_params :admin_user_id, :name, :description
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:admin_user_id, :name, :description]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :description
+    end
+    f.submit 'Create post', class: 'btn btn-primary'
+  end
+
+  member_action :create, method: :post do
+    post = current_admin_user.posts.new(name: params[:post][:name], description: params[:post][:description])
+    post.save
+    redirect_to admin_post_path(post)
+  end
 end
