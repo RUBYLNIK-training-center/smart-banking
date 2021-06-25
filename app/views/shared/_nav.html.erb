@@ -20,11 +20,11 @@
                 <% end %>
                 <% if locale == :ru %>
                   <li class="nav-item">
-                    <%= link_to 'English', root_path(locale: :en), class: "nav-link" %>
+                    <%= link_to 'English', url_for(locale: :en), class: "nav-link" %>
                   </li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to 'Русский', root_path(locale: :ru), class: "nav-link" %>
+                    <%= link_to 'Русский', url_for(locale: :ru), class: "nav-link" %>
                   </li>
                 <% end %>
             </ul>
