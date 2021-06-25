@@ -43,3 +43,5 @@ en:
       user_profile: "User profile"
   home:
     welcome: "Welcome to SmartBanking!"
+  post:
+    show_more: "Show more"
