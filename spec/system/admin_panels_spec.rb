@@ -11,7 +11,7 @@ RSpec.describe 'AdminPanels', type: :system do
     end
 
     it 'is expected to see News page' do
-      expect(page).to have_content 'News'
+      expect(page).to have_content 'Posts'
     end
   end
 
