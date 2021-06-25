@@ -4,34 +4,34 @@
       <%= form_for(user) do |f| %>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.name') %></h6>
+            <h6 class="mb-0">Name</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= f.text_field :name, :placeholder => t('users.name_placeholder'), class: "form-control" %>
+            <%= f.text_field :name, :placeholder => "Write your new name", class: "form-control" %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.surname') %></h6>
+            <h6 class="mb-0">Surname</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= f.text_field :surname, :placeholder => t('users.surname_placeholder'), class: "form-control" %>
+            <%= f.text_field :surname, :placeholder => "Write your new surname", class: "form-control" %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.age') %></h6>
+            <h6 class="mb-0">Age</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= f.text_field :age, :placeholder => t('users.age_placeholder'), class: "form-control" %>
+            <%= f.text_field :age, :placeholder => "Change your age", class: "form-control" %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.avatar') %></h6>
+            <h6 class="mb-0">Avatar</h6>
           </div>
           <div class="col-sm-9 text-secondary">
             <%= f.file_field :avatar, class: "form-control" %>
@@ -40,25 +40,25 @@
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.phone_number') %></h6>
+            <h6 class="mb-0">Phone number</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= f.text_field :phone_number, :placeholder => t('users.phone_placeholder'), class: "form-control" %>
+            <%= f.text_field :phone_number, :placeholder => "Change your phone number", class: "form-control" %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-3">
-            <h6 class="mb-0"><%= t('users.passport_number') %></h6>
+            <h6 class="mb-0">Passport number</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            <%= f.text_field :passport_number, :placeholder => t('users.passport_placeholder'), class: "form-control" %>
+            <%= f.text_field :passport_number, :placeholder => "Change your passport number", class: "form-control" %>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-sm-12">
-            <%= f.submit t('users.update_profile'), class: "btn btn-primary" %>
+            <%= f.submit "Update profile", class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
