@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = user
+    @currencies = Currency.order(:name)
   end
 
   def edit

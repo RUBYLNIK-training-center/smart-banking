@@ -2,19 +2,25 @@
 <h1><%= t 'home.welcome' %></h1>
 </div>
 
-<div class="container">
-<% @posts.each do |post|%>
-  <div class="row mt-5">
-    <div class="col-12">
-    		<h2><%= post.name %></h2>
-    		<%= post.description.slice(0..160) + '...' %>
-    		<%= link_to t('post.show_more'), post_path(post) %> <br>
-        <em>
-          <%= l(post.created_at, format: '%e %B %Y') %>
-          at <%= l(post.created_at, format: '%H:%M') %></em>
-
-    </div>
+<div class="row">
+  <div class="col-8">
+    <% @posts.each do |post|%>
+      <div class="row mt-5">
+        <div class="col-12">
+            <h2><%= post.name %></h2>
+            <%= post.description.slice(0..160) + '...' %>
+            <%= link_to t('post.show_more'), post_path(post) %> <br>
+            <em>
+              <%= l(post.created_at, format: '%e %B %Y') %>
+              at <%= l(post.created_at, format: '%H:%M') %></em>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+
+  <div class="col">
+    <%= render 'shared/currencies' %>
+  </div>
 </div>
+
 <%= paginate @posts %>
