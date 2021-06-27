@@ -33,6 +33,7 @@ ru:
     add_wallet: "Добавить кошелек"
     email: "Эл. почта"
     edit: "Изменить"
+    currency: "Валюта"
   about_us:
     about_title: "О нашем проекте"
     why_created_title: "Почему он был создан?"

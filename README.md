@@ -14,7 +14,10 @@
 * Install dependencies: `bundle install` 
 * Create database: `bundle exec rails db:setup`
 * Install front-end dependencies: `yarn`
+* Update crontab for real-time currency updates: `bundle exec whenever --update-crontab --set environment='development'`
 * Run server: `bundle exec rails s`
+
+Don't forget to clean crontab up after you're done: `bundle exec whenever --clear-crontab`
 
 ### Deploy
 We are using [capistrano](https://github.com/capistrano/capistrano) for deployment

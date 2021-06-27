@@ -10,36 +10,35 @@
                 <li class="nav-item">
                     <%= link_to t('global.menu.about_us'), '/about', class: 'nav-link' %>
                 </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
                 <% if current_user %>
                   <li class="nav-item">
                     <%= link_to t('global.menu.user_profile'), user_path(current_user), class: 'nav-link' %>
                   </li>
                 <% end %>
-                <% if locale == :ru %>
-                  <li class="nav-item">
-                    <%= link_to 'English', url_for(locale: :en), class: "nav-link" %>
-                  </li>
-                <% else %>
-                  <li class="nav-item">
-                    <%= link_to 'Русский', url_for(locale: :ru), class: "nav-link" %>
-                  </li>
-                <% end %>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
                 <% if current_user %> 
-                    <li class="nav-item">
+                    <li class="nav-item mr-5">
                         <%= link_to t('global.menu.sign_out'), destroy_user_session_path, class: "nav-link", method: :delete %>
                     </li>
                 <% else %>
-                    <li class="nav-item">
+                    <li class="nav-item mr-5">
                         <%= link_to t('global.menu.sign_in'), new_user_session_path, class: "nav-link" %>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-5">
                         <%= link_to  t('global.menu.sign_up'), new_user_registration_path, class: "nav-link" %>
                     </li>
                 <% end %> 
+                <li class="nav-item my-auto">
+                    <% if locale == :ru %>
+                        <%= link_to 'ENG', url_for(locale: :en), class: "btn btn-outline-secondary btn-sm" %>
+                    <% else %>
+                        <%= link_to 'RU', url_for(locale: :ru), class: "btn btn-outline-secondary btn-sm" %>
+                    <% end %>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
