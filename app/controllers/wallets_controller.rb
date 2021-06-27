@@ -7,7 +7,7 @@ class WalletsController < ApplicationController
   end
 
   def create
-    @wallet = current_user.wallets.new(currency_id: wallet_params[:currency_id], amount: 0, iban: iban,
+    @wallet = current_user.wallets.new(currency_id: wallet_params[:currency_id], amount: 0,
                                        wallet_number: create_random_wallet_number,
                                        user_id: current_user.id, locked: false)
 
