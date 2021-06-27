@@ -40,7 +40,7 @@ en:
       sign_out: "Sign Out"
       sign_up: "Sign Up"
       home: "Home"
-      user_profile: "User profile"
+      user_profile: "Profile"
   home:
     welcome: "Welcome to SmartBanking!"
   post:
