@@ -40,7 +40,7 @@ en:
       sign_out: "Sign Out"
       sign_up: "Sign Up"
       home: "Home"
-      user_profile: "User profile"
+      user_profile: "Profile"
   home:
     welcome: "Welcome to SmartBanking!"
   post:
@@ -65,3 +65,4 @@ en:
     add_wallet: "Add wallet"
     email: "Email"
     edit: "Edit"
+    currency: "Currency"

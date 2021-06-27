@@ -37,7 +37,12 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'date_validator', '~> 0.11.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'kaminari'
+# Use Kaminari for pagination
+gem "kaminari", "~> 1.2"
+# Use Whenever for managing crontab jobs
+gem 'whenever', "~> 1.0", require: false
+# Use Faraday as http client
+gem "faraday", "~> 1.4"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
