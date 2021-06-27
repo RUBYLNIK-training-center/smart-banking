@@ -1,4 +1,6 @@
 ActiveAdmin.register Post do
+  actions :all, except: :create
+
   form do |f|
     f.inputs do
       f.input :name

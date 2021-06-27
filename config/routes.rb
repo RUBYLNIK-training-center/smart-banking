@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     devise_for :users, skip: :omniauth_callbacks, controllers: { 
       registrations: 'users/registrations'
     }
+    
+    resources :wallets
 
-    resources :users
+    resources :users do
+      resources :wallets, shallow: true
+    end
   
     get 'home/index'
     get '/about', to: 'home#about'
