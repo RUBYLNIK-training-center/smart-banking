@@ -23,7 +23,7 @@
           <ul class="list-group list-group-flush">
             <% @user.wallets.each do |wallet| %>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h6 class="mb-0"><%= "#{wallet.wallet_number}" %></h6>
+                <h6 class="mb-0"><%= "#{parse_wallet_number(wallet.wallet_number)}" %></h6>
                 <span class="text-secondary"><%= "#{@user.name}" %></span>
               </li>
             <% end %>
