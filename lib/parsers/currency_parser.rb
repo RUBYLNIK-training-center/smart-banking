@@ -3,6 +3,7 @@ require 'faraday'
 require 'bigdecimal'
 
 class CurrencyParser
+  HEADERS = { 'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0' }.freeze
   attr_reader :url, :doc
 
   def initialize(url:)
@@ -22,8 +23,7 @@ class CurrencyParser
   private
 
   def parse_html
-    resp = Faraday.get(url, {},
-                       { 'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0' })
+    resp = Faraday.get(url, {}, HEADERS)
     @doc = Nokogiri::HTML(resp.body)
   end
 end
