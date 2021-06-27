@@ -66,3 +66,5 @@ en:
     email: "Email"
     edit: "Edit"
     currency: "Currency"
+    wallet_validation_error: "Parameters name, surname and passport number can't be blank for wallet creation!"
+    wallet_edit_profile_link: "Add information a click if you like."

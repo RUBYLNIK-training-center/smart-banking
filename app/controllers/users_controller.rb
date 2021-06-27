@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = user
     @currencies = Currency.order(:name)
+    @wallet = Wallet.new
   end
 
   def edit
