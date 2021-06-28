@@ -9,11 +9,8 @@ Rails.application.routes.draw do
     }
     
     resources :wallets
-
-    resources :users do
-      resources :wallets, shallow: true
-    end
-  
+    resources :users 
+    
     get 'home/index'
     get '/about', to: 'home#about'
     resources :post, only: :show
