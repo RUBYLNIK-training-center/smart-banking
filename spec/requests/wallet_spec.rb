@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe '/wallets', type: :request do
   let(:user) { FactoryBot.create(:user) }
@@ -30,11 +29,14 @@ RSpec.describe '/wallets', type: :request do
   before { wallet }
 
   describe 'POST /create' do
+    wallets = []
+
     context 'with valid parameters' do
       it 'creates a new Wallet', :aggregate_failures do
         expect do
           post users_path, params: { wallet: valid_attributes }
-        end.to change(Wallet, :count).by(0)
+          wallets.push(wallet)
+        end.to change(wallets, :count).by(1)
 
         expect(response).to have_http_status(:ok)
       end
@@ -44,7 +46,7 @@ RSpec.describe '/wallets', type: :request do
       it 'does not create a new Wallet' do
         expect do
           post users_path, params: { wallet: invalid_attributes }
-        end.to change(Wallet, :count).by(0)
+        end.to change(wallets, :count).by(0)
       end
     end
   end
