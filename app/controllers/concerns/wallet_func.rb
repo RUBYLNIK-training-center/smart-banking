@@ -6,4 +6,15 @@ module WalletFunc
   def currencies
     Currency.all
   end
+
+  def unlocked_user_wallets(user)
+    wallets = []
+
+    user.wallets.each do |wallet|
+      if wallet.locked == false
+        wallets << wallet
+      end
+    end
+    wallets
+  end
 end

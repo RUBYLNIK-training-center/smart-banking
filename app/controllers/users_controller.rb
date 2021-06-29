@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  include WalletFunc
+
   def show
     @user = user
+    @wallets = unlocked_user_wallets(@user)
     @currencies = Currency.order(:name)
     @wallet = Wallet.new
   end
