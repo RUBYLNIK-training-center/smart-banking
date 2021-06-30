@@ -13,10 +13,12 @@ class Wallet < ApplicationRecord
   private
 
   def set_wallet_number
-    if Wallet.exists?(wallet_number: create_random_wallet_number)
+    created_wallet_number = create_random_wallet_number
+    
+    if Wallet.exists?(wallet_number: created_wallet_number)
       set_wallet_number
     else
-      self.wallet_number = create_random_wallet_number
+      self.wallet_number = created_wallet_number
     end
   end
 end
