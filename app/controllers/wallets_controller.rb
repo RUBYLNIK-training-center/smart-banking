@@ -7,17 +7,10 @@ class WalletsController < ApplicationController
   end
 
   def create
-    @wallet = current_user.wallets.new(currency_id: wallet_params[:currency_id], amount: 0,
-                                       wallet_number: create_random_wallet_number,
-                                       user_id: current_user.id, locked: false)
-
-    respond_to do |format|
-      if @wallet.save
-        format.html { redirect_to current_user, notice: 'Wallet was successfully created.' }
-      else
-        format.html { render :new, location: @wallet }
-      end
-    end
+    @wallet = current_user.wallets.create(currency_id: wallet_params[:currency_id], amount: 0,
+                                          wallet_number: create_random_wallet_number,
+                                          user_id: current_user.id, locked: false)
+    redirect_to current_user, notice: 'Wallet was successfully created.'
   end
 
   private

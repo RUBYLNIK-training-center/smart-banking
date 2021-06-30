@@ -11,9 +11,7 @@ module WalletFunc
     wallets = []
 
     user.wallets.each do |wallet|
-      if wallet.locked == false
-        wallets << wallet
-      end
+      wallets << wallet if wallet.locked == false
     end
     wallets
   end

@@ -29,7 +29,7 @@ RSpec.describe '/wallets', type: :request do
   before { wallet }
 
   describe 'POST /create' do
-    wallets = []
+    let(:wallets) { [] }
 
     context 'with valid parameters' do
       it 'creates a new Wallet', :aggregate_failures do
