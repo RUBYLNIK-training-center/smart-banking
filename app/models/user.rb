@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :age, allow_nil: true, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+  validate :acceptable_avatar
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -26,5 +27,18 @@ class User < ApplicationRecord
 
   def unlock!
     update(locked: false)
+  end
+
+  def acceptable_avatar
+    return unless avatar.attached?
+  
+    unless avatar.byte_size <= 1.megabyte
+      errors.add(:avatar, "is too big")
+    end
+  
+    acceptable_types = ["image/jpeg", "image/png"]
+    unless acceptable_types.include?(avatar.content_type)
+      errors.add(:avatar, "must be a JPEG or PNG")
+    end
   end
 end
