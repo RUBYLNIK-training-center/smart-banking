@@ -5,6 +5,11 @@
 <div class="container">
   <div class="row">     
     <div class="text-left">
+		  <% if @post.avatar.attached? %>
+          <img src="<%= (url_for(@post.avatar)) %>" alt="Admin" class="rounded-circle" width="150" height="150" >
+        <% else %>
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+      <% end %>
     	<%= @post.description %>
     </div>
   </div>
