@@ -13,7 +13,24 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
+
+
+
+
+
+
+
                 <% if current_user %>
+                    <li class="nav-item my-auto">
+                    <% if current_user.avatar.attached? %>
+                        <a href="<%=user_path(current_user)%>"><img src="<%= (url_for(current_user.avatar)) %>" alt="Admin" class="rounded-circle " width="40" height="40" ></a>
+
+                        <% else %>
+
+                        <a href="<%=user_path(current_user)%>"> <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="40"></a>
+
+                     <% end %>
+                    </li>
                   <li class="nav-item">
                     <%= link_to t('global.menu.user_profile'), user_path(current_user), class: 'nav-link' %>
                   </li>
