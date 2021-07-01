@@ -17,11 +17,8 @@
                     <li class="nav-item my-auto">
                     <% if current_user.avatar.attached? %>
                         <a href="<%=user_path(current_user)%>"><img src="<%= (url_for(current_user.avatar)) %>" alt="Admin" class="rounded-circle " width="40" height="40" ></a>
-
-                        <% else %>
-
+                    <% else %>
                         <a href="<%=user_path(current_user)%>"> <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="40"></a>
-
                      <% end %>
                     </li>
                   <li class="nav-item">
