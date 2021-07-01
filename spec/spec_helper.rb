@@ -20,6 +20,7 @@ RSpec.configure do |config|
   # assertions if you prefer.
 
   require 'shoulda/matchers'
+  require 'active_storage_validations/matchers'
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`

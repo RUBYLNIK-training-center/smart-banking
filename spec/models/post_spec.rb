@@ -11,5 +11,13 @@ RSpec.describe Post do
 
     it { is_expected.to validate_length_of(:name).is_at_least(2) }
     it { is_expected.to validate_length_of(:description).is_at_most(2000) }
+
+    it { is_expected.to validate_attached_of(:avatar) }
+
+    it { is_expected.to validate_content_type_of(:avatar).allowing('image/png', 'image/jpeg', 'image/jpg') }
+    it { is_expected.to validate_content_type_of(:avatar).rejecting('text/plain', 'text/xml') }
+
+    it { is_expected.to validate_dimensions_of(:avatar).width(150) }
+    it { is_expected.to validate_dimensions_of(:avatar).height(150) }
   end
 end
