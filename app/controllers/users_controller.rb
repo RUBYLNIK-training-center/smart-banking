@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include WalletFunc
+  include WalletMethods
 
   def show
     @user = user

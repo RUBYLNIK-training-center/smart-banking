@@ -1,5 +1,5 @@
 class WalletsController < ApplicationController
-  include WalletFunc
+  include WalletMethods
 
   def new
     @wallet = Wallet.new

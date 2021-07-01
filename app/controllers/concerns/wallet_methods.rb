@@ -1,4 +1,4 @@
-module WalletFunc
+module WalletMethods
   def create_random_wallet_number
     rand(1_111_111_111_111_111..9_999_999_999_999_999)
   end
@@ -8,11 +8,6 @@ module WalletFunc
   end
 
   def unlocked_user_wallets(user)
-    wallets = []
-
-    user.wallets.each do |wallet|
-      wallets << wallet if wallet.locked == false
-    end
-    wallets
+    Wallet.where(user: user, locked: false)
   end
 end
