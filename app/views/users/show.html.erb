@@ -8,7 +8,7 @@
               <% if @user.avatar.attached? %>
                 <img src="<%= (url_for(@user.avatar)) %>" alt="Admin" class="rounded-circle" width="150" height="150" >
               <% else %>
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                <img src="https://smart-banking.s3.us-east-2.amazonaws.com/iconfinder_2428662_account_agenda_app_contacts_online_icon_512px+(1).png" alt="Admin" class="rounded-circle" width="150">
               <% end %>
               <div class="mt-3">
                 <h4><%= "#{@user.name} #{@user.surname}" %></h4>
