@@ -14,16 +14,15 @@ RSpec.describe WalletsHelpers, type: :concern do
 
   describe '.unlocked_user_wallets' do
     let(:user) { FactoryBot.create(:user) }
+    let(:unlocked_wallets) { WalletsHelpers.unlocked_user_wallets(user) }
     let(:first_wallet) { FactoryBot.create(:wallet) }
     let(:second_wallet) { FactoryBot.create(:wallet) }
 
-    let(:unlocked_wallets) do
+    before do
       user.wallets.push(first_wallet)
 
       second_wallet.locked = true
       user.wallets.push(second_wallet)
-
-      WalletsHelpers.unlocked_user_wallets(user)
     end
 
     context 'is expected to have an unlocked wallets' do
