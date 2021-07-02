@@ -7,14 +7,14 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <% if @user.avatar.attached? %>
-                <img src="<%= (url_for(@user.avatar)) %>" alt="Admin" class="rounded-circle" width="150" height="150" >
+              <% if current_user.avatar.attached? %>
+                <img src="<%= (url_for(current_user.avatar)) %>" alt="Admin" class="rounded-circle" width="150" height="150" >
               <% else %>
                 <img src="https://smart-banking.s3.us-east-2.amazonaws.com/iconfinder_2428662_account_agenda_app_contacts_online_icon_512px+(1).png" alt="Admin" class="rounded-circle" width="150">
               <% end %>
               <div class="mt-3">
-                <h4><%= "#{@user.name} #{@user.surname}" %></h4>
-                <%= form_for(@user) do |f| %>
+                <h4><%= "#{current_user.name} #{current_user.surname}" %></h4>
+                <%= form_for(current_user, url: users_url) do |f| %>
                   <%= f.file_field :avatar, required: true, class: "form-control" %>
                   <br/>
                   <%= f.submit t('users.upload_image'), class: "btn btn-primary" %>
@@ -30,13 +30,13 @@
             <% @wallets.each do |wallet| %>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><%= "#{parse_wallet_number(wallet.wallet_number)}" %></h6>
-                <span class="text-secondary"><%= "#{@user.name}" %></span>
+                <span class="text-secondary"><%= "#{current_user.name}" %></span>
               </li>
             <% end %>
           </ul>
     
           <!-- Button trigger modal -->
-            <% if @user.name!="" && @user.surname!="" && @user.passport_number!="" %>
+            <% if current_user.name!="" && current_user.surname!="" && current_user.passport_number!="" %>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 <%= t('users.add_wallet')%>
               </button>
@@ -46,7 +46,7 @@
               </button> 
               <div class="alert alert-danger mt-2" role="alert">
                 <%=t('users.wallet_validation_error') %> 
-                <%= link_to t('users.wallet_edit_profile_link'), edit_user_url(@user), class: "alert-link" %>
+                <%= link_to t('users.wallet_edit_profile_link'), edit_users_url, class: "alert-link" %>
               </div>           
             <%end%>
           <!-- Modal -->
@@ -77,7 +77,7 @@
                   <h6 class="mb-0"><%= t('users.name') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.name}" %>
+                  <%= "#{current_user.name}" %>
                 </div>
               </div>
               <hr>
@@ -86,7 +86,7 @@
                   <h6 class="mb-0"><%= t('users.surname') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.surname}" %>
+                  <%= "#{current_user.surname}" %>
                 </div>
               </div>
               <hr>
@@ -95,7 +95,7 @@
                   <h6 class="mb-0"><%= t('users.age') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.age}" %>
+                  <%= "#{current_user.age}" %>
                 </div>
               </div>
               <hr>
@@ -104,7 +104,7 @@
                   <h6 class="mb-0"><%= t('users.email') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.email}" %>
+                  <%= "#{current_user.email}" %>
                 </div>
               </div>
               <hr>
@@ -113,7 +113,7 @@
                   <h6 class="mb-0"><%= t('users.phone_number') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.phone_number}" %>
+                  <%= "#{current_user.phone_number}" %>
                 </div>
               </div>
               <hr>
@@ -122,13 +122,13 @@
                   <h6 class="mb-0"><%= t('users.passport_number') %></h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                  <%= "#{@user.passport_number}" %>
+                  <%= "#{current_user.passport_number}" %>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-sm-12">
-                  <%= link_to t('users.edit'), edit_user_url(@user), class: "btn btn-primary" %>
+                  <%= link_to t('users.edit'), edit_users_url, class: "btn btn-primary" %>
                 </div>
               </div>
             </div>
