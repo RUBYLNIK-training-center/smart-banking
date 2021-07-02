@@ -45,6 +45,7 @@ gem 'whenever', "~> 1.0", require: false
 gem "faraday", "~> 1.4"
 
 gem 'active_storage_validations', '~> 0.9.5'
+gem 'mini_magick', '~> 4.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -92,7 +93,6 @@ group :test do
   gem "capybara", "~> 3.35"
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
-  gem 'mini_magick', '~> 4.11'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
