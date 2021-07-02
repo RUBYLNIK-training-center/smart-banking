@@ -1,4 +1,6 @@
-<div class="container mt-5">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<div class="container">
 <div class="main-body">
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
@@ -23,16 +25,48 @@
         </div>
         <br/>
         <h4><%= t('users.your_wallets') %></h4>
-        <div class="card mt-3">
+        <div class="card mt-3" style="border: none;">
           <ul class="list-group list-group-flush">
-          <% @user.wallets do |wallet| %>
-            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg><%= "#{wallet.wallet_number}" %></h6>
-              <span class="text-secondary"><%= "#{@user.name}" %></span>
-            </li>
-          <% end %>
+            <% @wallets.each do |wallet| %>
+              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                <h6 class="mb-0"><%= "#{parse_wallet_number(wallet.wallet_number)}" %></h6>
+                <span class="text-secondary"><%= "#{@user.name}" %></span>
+              </li>
+            <% end %>
           </ul>
-          <%= link_to t('users.add_wallet'), user_path(@user), class: "btn btn-primary" %>
+    
+          <!-- Button trigger modal -->
+            <% if @user.name!="" && @user.surname!="" && @user.passport_number!="" %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <%= t('users.add_wallet')%>
+              </button>
+            <%else%>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" disabled>
+                <%= t('users.add_wallet')%>
+              </button> 
+              <div class="alert alert-danger mt-2" role="alert">
+                <%=t('users.wallet_validation_error') %> 
+                <%= link_to t('users.wallet_edit_profile_link'), edit_user_url(@user), class: "alert-link" %>
+              </div>           
+            <%end%>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title", id="exampleModalLongTitle" ><%= t('users.add_wallet') %></h5>
+    
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'wallet_form' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
           </div>
         </div>
         <div class="col-md-8">
@@ -94,12 +128,11 @@
               <hr>
               <div class="row">
                 <div class="col-sm-12">
-                  <%= link_to t('users.edit'), edit_user_url(@user.id), class: "btn btn-primary" %>
+                  <%= link_to t('users.edit'), edit_user_url(@user), class: "btn btn-primary" %>
                 </div>
               </div>
             </div>
           </div>
-          <%= render 'shared/currencies' %>
         </div>
     </div>
   </div>

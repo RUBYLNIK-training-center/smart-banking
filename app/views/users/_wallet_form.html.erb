@@ -1,0 +1,6 @@
+<%= form_for(@wallet) do |f| %>
+  <%= f.select :currency_id, @currencies.map {|el| [el.name, el.id] } %>
+  <div class="mt-3">
+   <%= f.submit 'Create wallet', class: "btn btn-primary" %>
+  </div>
+<% end %>

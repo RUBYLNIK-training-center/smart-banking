@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  describe 'GET /index' do
+  describe 'GET /show' do
     context 'when user is not logged in' do
       login_user
 

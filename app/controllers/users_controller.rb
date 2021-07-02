@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+  include WalletsHelpers
+
   def show
     @user = user
+    @wallets = WalletsHelpers.unlocked_user_wallets(@user)
     @currencies = Currency.order(:name)
+    @wallet = Wallet.new
   end
 
   def edit
