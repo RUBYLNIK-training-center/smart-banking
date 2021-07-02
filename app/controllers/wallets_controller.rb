@@ -1,9 +1,9 @@
 class WalletsController < ApplicationController
-  include WalletMethods
+  include WalletsHelpers
 
   def new
     @wallet = Wallet.new
-    @currencies = currencies
+    @currencies = WalletsHelpers.currencies
   end
 
   def create

@@ -1,5 +1,5 @@
 class Wallet < ApplicationRecord
-  include WalletFunc
+  include WalletsHelpers
 
   before_create :set_wallet_number
 
@@ -13,7 +13,7 @@ class Wallet < ApplicationRecord
   private
 
   def set_wallet_number
-    created_wallet_number = create_random_wallet_number
+    created_wallet_number = WalletsHelpers.create_random_wallet_number
 
     if Wallet.exists?(wallet_number: created_wallet_number)
       set_wallet_number
