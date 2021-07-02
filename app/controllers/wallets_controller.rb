@@ -10,7 +10,7 @@ class WalletsController < ApplicationController
     @wallet = current_user.wallets.create(currency_id: wallet_params[:currency_id], amount: 0,
                                           wallet_number: WalletsHelpers.create_random_wallet_number,
                                           user_id: current_user.id, locked: false)
-    redirect_to current_user, notice: 'Wallet was successfully created.'
+    redirect_to users_url, notice: 'Wallet was successfully created.'
   end
 
   private
