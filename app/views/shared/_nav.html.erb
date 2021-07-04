@@ -16,9 +16,9 @@
                 <% if current_user %>
                     <li class="nav-item my-auto">
                     <% if current_user.avatar.attached? %>
-                        <a href="<%=users_path(current_user)%>"><img src="<%= (url_for(current_user.avatar)) %>" alt="Admin" class="rounded-circle " width="40" height="40" ></a>
+                        <a href="<%=users_url%>"><img src="<%= (url_for(current_user.avatar)) %>" alt="Admin" class="rounded-circle " width="40" height="40" ></a>
                     <% else %>
-                        <a href="<%=user_path(current_user)%>"> <img src="https://smart-banking.s3.us-east-2.amazonaws.com/iconfinder_2428662_account_agenda_app_contacts_online_icon_512px+(1).png" alt="Admin" class="rounded-circle" width="40"></a>
+                        <a href="<%=users_url%>"> <img src="https://smart-banking.s3.us-east-2.amazonaws.com/iconfinder_2428662_account_agenda_app_contacts_online_icon_512px+(1).png" alt="Admin" class="rounded-circle" width="40"></a>
                      <% end %>
                     </li>
                   <li class="nav-item">
