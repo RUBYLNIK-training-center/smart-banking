@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { is_expected.to have_many(:wallets) }
     it { is_expected.to have_many(:subscriptions) }
+    it { is_expected.to have_many(:transactions) }
   end
 
   describe 'validations' do
