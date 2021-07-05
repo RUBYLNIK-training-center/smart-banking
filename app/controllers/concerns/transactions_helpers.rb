@@ -11,18 +11,6 @@ module TransactionsHelpers
     reciepent_wallet
   end
 
-  def self.freeze_wallet(wallet)
-    wallet.freeze = true
-    wallet.save
-    wallet
-  end
-
-  def self.unfreeze(wallet)
-    wallet.freeze = false
-    wallet.save
-    wallet
-  end
-
   def self.transaction_creation_prohibited(sender, reciepent)
     redirect_to transactions_path, notice: 'Transaction failed' if sender.freeze == true && reciepent.freeze == true
   end

@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   include TransactionsHelpers
+  include WalletsHelpers
 
   def new
     @transaction = Transaction.new
@@ -8,10 +9,10 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    sender_wallet = TransactionsHelpers.freeze_wallet(Wallet.find(params[:transaction][:wallet_id]))
+    sender_wallet = WalletsHelpers.freeze_wallet(Wallet.find(params[:transaction][:wallet_id]))
     TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
-    reciepent_wallet = TransactionsHelpers.freeze_wallet(Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent]))
+    reciepent_wallet = WalletsHelpers.freeze_wallet(Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent]))
     TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
 
     @transaction = current_user.transactions.create(status: true,
@@ -32,9 +33,7 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     else
-      respond_to do |format|
-        format.html { render :new, location: @transaction, notice: 'Your wallet frozen..' }
-      end
+      render :new, location: @transaction, notice: 'Your wallet frozen..' }
     end
   end
 
