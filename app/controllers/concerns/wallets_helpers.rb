@@ -10,7 +10,7 @@ module WalletsHelpers
   def self.unlocked_user_wallets(user)
     Wallet.where(user: user, locked: false)
   end
-  
+
   def self.freeze_wallet(wallet)
     wallet.freeze = true
     wallet.save
