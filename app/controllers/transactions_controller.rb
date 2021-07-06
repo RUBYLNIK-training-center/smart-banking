@@ -13,8 +13,7 @@ class TransactionsController < ApplicationController
     sender_wallet = Wallet.find(params[:transaction][:wallet_id])
 
     if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i)
-      WalletsHelpers.freeze_wallet(sender_wallet)
-      TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
+      subtract(WalletsHelpers.freeze_wallet(sender_wallet), TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum]))
 
       reciepent_wallet = WalletsHelpers.freeze_wallet(Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent]))
       TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
@@ -28,12 +27,7 @@ class TransactionsController < ApplicationController
                                                       wallet_id: params[:transaction][:wallet_id],
                                                       date: Time.now,
                                                       wallet_reciepent: params[:transaction][:wallet_reciepent])
-
-      WalletsHelpers.unfreeze(sender_wallet)
-      WalletsHelpers.unfreeze(reciepent_wallet)
-
-      TransactionsHelpers.transaction_creation_prohibited(sender_wallet, reciepent_wallet)
-
+      unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     else
       redirect_to new_transactions_path, notice: 'Insufficient funds for transfer!'
@@ -43,6 +37,11 @@ class TransactionsController < ApplicationController
   def show; end
 
   private
+
+  def unfreeze_wallets(sender_wallet, reciepent_wallet)
+    WalletsHelpers.unfreeze(sender_wallet)
+    WalletsHelpers.unfreeze(reciepent_wallet)
+  end
 
   def transaction_params
     params.require(:transaction).permit(:transaction_type, :sum, :fee, :wallet_reciepent)

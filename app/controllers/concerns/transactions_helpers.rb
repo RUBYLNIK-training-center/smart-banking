@@ -11,10 +11,6 @@ module TransactionsHelpers
     reciepent_wallet
   end
 
-  def self.transaction_creation_prohibited(sender, reciepent)
-    redirect_to transactions_path, notice: 'Transaction failed' if sender.freeze == true && reciepent.freeze == true
-  end
-
   def self.wallet_has_money(amount, quantity)
     amount > (quantity + 0.99)
   end
