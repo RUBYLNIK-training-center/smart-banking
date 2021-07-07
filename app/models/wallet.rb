@@ -12,6 +12,10 @@ class Wallet < ApplicationRecord
 
   private
 
+  def self.unlocked_user_wallets(user)
+    Wallet.where(user: user, locked: false)
+  end
+
   def set_wallet_number
     created_wallet_number = WalletsHelpers.create_random_wallet_number
 

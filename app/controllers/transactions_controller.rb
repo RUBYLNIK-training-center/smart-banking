@@ -3,9 +3,8 @@ class TransactionsController < ApplicationController
   include WalletsHelpers
 
   def new
-    @transaction = Transaction.new
+    @transaction = Transaction.new(fee: 0.99)
     @wallets = current_user.wallets
-    @transaction.fee = 0.99
   end
 
   def create
@@ -13,15 +12,18 @@ class TransactionsController < ApplicationController
     sender_wallet = Wallet.find(params[:transaction][:wallet_id])
 
     if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i)
-      subtract(WalletsHelpers.freeze_wallet(sender_wallet), TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum]))
+      sender_wallet.freeze_wallet!
+      TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
-      reciepent_wallet = WalletsHelpers.freeze_wallet(Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent]))
+      reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
+
+      reciepent_wallet.freeze_wallet!
       TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
 
       @transaction = current_user.transactions.create(status: true,
-                                                      transaction_type: params[:transaction][:transaction_type],
+                                                      transaction_type: 'Banking',
                                                       sum: params[:transaction][:sum],
-                                                      fee: params[:transaction][:fee],
+                                                      fee: 0.99,
                                                       sender_id: sender_wallet.user_id,
                                                       user_id: reciepent_wallet.user_id,
                                                       wallet_id: params[:transaction][:wallet_id],
@@ -39,8 +41,8 @@ class TransactionsController < ApplicationController
   private
 
   def unfreeze_wallets(sender_wallet, reciepent_wallet)
-    WalletsHelpers.unfreeze(sender_wallet)
-    WalletsHelpers.unfreeze(reciepent_wallet)
+    sender_wallet.unfreeze!
+    reciepent_wallet.unfreeze!
   end
 
   def transaction_params
