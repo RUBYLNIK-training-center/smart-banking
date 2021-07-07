@@ -12,12 +12,12 @@ class TransactionsController < ApplicationController
     sender_wallet = Wallet.find(params[:transaction][:wallet_id])
 
     if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i)
-      sender_wallet.freeze_wallet!
+      sender_wallet.freeze!
       TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
       reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
-      reciepent_wallet.freeze_wallet!
+      reciepent_wallet.freeze!
       TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
 
       @transaction = current_user.transactions.create(status: true,

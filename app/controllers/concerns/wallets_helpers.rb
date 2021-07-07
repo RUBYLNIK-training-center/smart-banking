@@ -7,7 +7,7 @@ module WalletsHelpers
     Currency.all
   end
 
-  def freeze_wallet!
+  def freeze!
     self.freeze = true
     save
     self

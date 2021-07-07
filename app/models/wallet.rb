@@ -10,11 +10,9 @@ class Wallet < ApplicationRecord
 
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  private
+  scope :unlocked_user_wallets, ->(user) { Wallet.where(user: user, locked: false) }
 
-  def self.unlocked_user_wallets(user)
-    Wallet.where(user: user, locked: false)
-  end
+  private
 
   def set_wallet_number
     created_wallet_number = WalletsHelpers.create_random_wallet_number
