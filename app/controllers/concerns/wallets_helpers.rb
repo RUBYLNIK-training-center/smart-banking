@@ -8,9 +8,7 @@ module WalletsHelpers
   end
 
   def freeze!
-    self.freeze = true
-    save
-    self
+    update(freeze: true)
   end
 
   def unfreeze!
