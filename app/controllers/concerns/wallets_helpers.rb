@@ -7,7 +7,11 @@ module WalletsHelpers
     Currency.all
   end
 
-  def self.unlocked_user_wallets(user)
-    Wallet.where(user: user, locked: false)
+  def freeze!
+    update(freeze: true)
+  end
+
+  def unfreeze!
+    update(freeze: false)
   end
 end

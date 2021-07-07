@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     
     resources :wallets
     resource :users
+    resource :transactions
     
     get 'home/index'
     get '/about', to: 'home#about'

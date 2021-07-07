@@ -1,0 +1,11 @@
+<%= form_for(transaction) do |f| %>
+  <%= f.label :transaction_type, "Transaction type: Banking", class: "form-control" %>
+  <br/>
+  <%= f.select :wallet_id, @wallets.map {|el| [el.wallet_number, el.id] } %>
+  <%= f.text_field :sum, :placeholder => 'Write sum', class: "form-control" %>
+  <br/>
+  <%= f.text_field :wallet_reciepent, :placeholder => 'Write wallet reciepent', class: "form-control" %>
+  <%= f.label @transaction.fee, "Comission: #{@transaction.fee}", class: "form-label" %>
+    <br/>
+    <%= f.submit 'Make a transfer', class: "btn btn-primary" %>
+  <% end %>
