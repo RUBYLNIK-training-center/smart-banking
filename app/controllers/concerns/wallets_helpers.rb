@@ -14,8 +14,6 @@ module WalletsHelpers
   end
 
   def unfreeze!
-    self.freeze = false
-    save
-    self
+    update(freeze: false)
   end
 end
