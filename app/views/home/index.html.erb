@@ -2,14 +2,26 @@
 <h1><%= t 'home.welcome' %></h1>
 </div>
 
+<div class="container">
 <div class="row">
   <div class="col-8">
     <% @posts.each do |post|%>
-      <div class="row mt-5">
-        <div class="col-12">
-            <h2><%= post.name %></h2>
+      <div class="row mt-4">
+        <div class="col-lg-10">
+          <h2><%= post.name %></h2>
+          <% if post.avatar.attached? %>
+            <div>
+              <div class="rounded float-start">
+                <img src="<%= (url_for(post.avatar)) %>" alt="Admin" class="rounded-circle" width="100" height="100" >
+          <% else %>
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="100">
+          <% end %>
+              </div>
+            </div>
+          <div class='ml-4'>
             <%= post.description.slice(0..160) + '...' %>
             <%= link_to t('post.show_more'), post_path(post) %> <br>
+          </div>
             <em>
               <%= l(post.created_at, format: '%e %B %Y') %>
               at <%= l(post.created_at, format: '%H:%M') %></em>
@@ -18,9 +30,9 @@
     <% end %>
   </div>
 
-  <div class="col">
+  <div class="col mt-5">
     <%= render 'shared/currencies' %>
   </div>
 </div>
-
+</div>
 <%= paginate @posts %>
