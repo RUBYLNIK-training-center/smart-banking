@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-8">
     <% @posts.each do |post|%>
-      <div class="row mt-5">
+      <div class="row mt-4">
         <div class="col-lg-10">
           <h2><%= post.name %></h2>
           <% if post.avatar.attached? %>
@@ -23,8 +23,8 @@
             <%= link_to t('post.show_more'), post_path(post) %> <br>
           </div>
             <em>
-              <%= l(post.created_at, format: '%e %B %Y') %>
-              at <%= l(post.created_at, format: '%H:%M') %></em>
+              <%= l(post.created_at, format: '%e %B %Y') %> <%=t ('home.at') %>
+              <%= l(post.created_at, format: '%H:%M') %></em>
         </div>
       </div>
     <% end %>
