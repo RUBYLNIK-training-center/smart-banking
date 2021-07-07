@@ -13,9 +13,8 @@ ActiveAdmin.register Post do
   permit_params :name, :description
 
   member_action :create, method: :post do
-    post = current_admin_user.posts.new(name: params[:post][:name], description: params[:post][:description],
+    post = current_admin_user.posts.create(name: params[:post][:name], description: params[:post][:description],
                                         avatar: params[:post][:avatar])
-    post.save
     redirect_to admin_post_path(post)
   end
 end
