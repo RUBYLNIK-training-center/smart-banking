@@ -42,9 +42,7 @@
               </li>
             <% end %>
           </ul>
-    
-          <!-- Button trigger modal -->
-            <% if current_user.name!="" && current_user.surname!="" && current_user.passport_number!="" %>
+            <% if user_fields_exist? %>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 <%= t('users.add_wallet')%>
               </button>
@@ -57,7 +55,6 @@
                 <%= link_to t('users.wallet_edit_profile_link'), edit_users_url, class: "alert-link" %>
               </div>           
             <%end%>
-          <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
@@ -74,7 +71,6 @@
               </div>
             </div>
           </div>
-
           </div>
         </div>
         <div class="col-md-8">
