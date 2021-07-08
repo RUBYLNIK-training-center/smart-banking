@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
                                                       sender_id: sender_wallet.user_id,
                                                       user_id: reciepent_wallet.user_id,
                                                       wallet_id: params[:transaction][:wallet_id],
-                                                      date: Time.now,
+                                                      date: Time.current,
                                                       wallet_reciepent: params[:transaction][:wallet_reciepent])
       unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
