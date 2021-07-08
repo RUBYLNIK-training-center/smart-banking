@@ -14,25 +14,6 @@ RSpec.describe WalletsHelpers, type: :concern do
     end
   end
 
-  # describe '.unlocked_user_wallets' do
-  # let(:user) { FactoryBot.create(:user) }
-  # let(:unlocked_wallets) { described_class.unlocked_user_wallets(user) }
-  # let(:first_wallet) { FactoryBot.create(:wallet) }
-  # let(:second_wallet) { FactoryBot.create(:wallet) }
-  #
-  # before do
-  # user.wallets.push(first_wallet)
-  #
-  # second_wallet.locked = true
-  # user.wallets.push(second_wallet)
-  # end
-  #
-  # context 'when expected to have an unlocked wallets' do
-  # it { expect(unlocked_wallets.first.locked).to eq(false) }
-  # it { expect(unlocked_wallets.length).to eq(1) }
-  # end
-  # end
-
   describe '.currencies' do
     let(:currencies) { described_class.currencies }
 
