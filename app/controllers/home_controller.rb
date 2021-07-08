@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.includes(:avatar_attachment).page(params[:page])
     @currencies = Currency.order(:name)
   end
 
