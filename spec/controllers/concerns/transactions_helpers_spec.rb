@@ -17,17 +17,17 @@ require 'rails_helper'
 #   end
 
 RSpec.describe TransactionsHelpers, type: :concern do
-  include TransactionsHelpers
+  include described_class
 
   let(:wallet) { FactoryBot.create(:wallet) }
 
   describe '.withdrawal_of_funds' do
     before do
       wallet.amount = 4
-      TransactionsHelpers.withdrawal_of_funds(wallet, 1)
+      described_class.withdrawal_of_funds(wallet, 1)
     end
 
-    context 'is expected to have a withdrawal of funds from sender wallet' do
+    context 'when expected to have a withdrawal of funds from sender wallet' do
       it { expect(wallet.amount).to eq(0.201e1) }
     end
   end
@@ -35,10 +35,10 @@ RSpec.describe TransactionsHelpers, type: :concern do
   describe '.money_transfer' do
     before do
       wallet.amount = 4
-      TransactionsHelpers.money_transfer(wallet, 1)
+      described_class.money_transfer(wallet, 1)
     end
 
-    context 'is expected to have a money transfer on reciepent wallet' do
+    context 'when expected to have a money transfer on reciepent wallet' do
       it { expect(wallet.amount).to eq(0.5e1) }
     end
   end
@@ -48,8 +48,8 @@ RSpec.describe TransactionsHelpers, type: :concern do
       wallet.amount = 2
     end
 
-    context 'is expected to have a wallet has money' do
-      it { expect(TransactionsHelpers.wallet_has_money(wallet.amount, 5)).to eq(false) }
+    context 'when expected to have a wallet has money' do
+      it { expect(described_class.wallet_has_money(wallet.amount, 5)).to eq(false) }
     end
   end
 end
