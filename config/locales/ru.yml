@@ -11,6 +11,7 @@ ru:
       user_profile: "Профиль"
   home:
     welcome: "Добро пожаловать в SmartBanking!"
+    at: "в"
   post:
     show_more: "Показать больше"
   users:

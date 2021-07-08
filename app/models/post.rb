@@ -11,5 +11,5 @@ class Post < ApplicationRecord
 
   validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/jpg']
 
-  paginates_per 5
+  paginates_per 4
 end
