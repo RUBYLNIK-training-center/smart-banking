@@ -10,14 +10,16 @@ class TransactionsController < ApplicationController
   def create
     @wallets = current_user.wallets
     sender_wallet = Wallet.find(params[:transaction][:wallet_id])
+    reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
-    if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i)
+    if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i) && !reciepent_wallet.nil?
       sender_wallet.freeze!
       TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
+      reciepent_wallet.freeze!
+
       reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
-      reciepent_wallet.freeze!
       TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
 
       @transaction = current_user.transactions.create(status: true,
@@ -31,6 +33,8 @@ class TransactionsController < ApplicationController
                                                       wallet_reciepent: params[:transaction][:wallet_reciepent])
       unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
+    elsif reciepent_wallet.nil?
+      redirect_to new_transactions_path, notice: 'You have not completed all the fields!'
     else
       redirect_to new_transactions_path, notice: 'Insufficient funds for transfer!'
     end
