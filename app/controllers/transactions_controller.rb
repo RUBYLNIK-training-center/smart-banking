@@ -40,7 +40,9 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @transactions = current_user.transactions.page params[:page]
+  end
 
   private
 
