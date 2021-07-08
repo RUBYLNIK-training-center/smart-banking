@@ -1,6 +1,11 @@
 <div class='text-center mt-5'>
 <h1><%= t 'home.welcome' %></h1>
 </div>
+<style>
+.ml-2{
+  margin-left: 14%;
+}
+</style>
 
 <div class="container">
 <div class="row">
@@ -18,7 +23,7 @@
           <% end %>
               </div>
             </div>
-          <div class='ml-4'>
+          <div class='ml-2'>
             <%= post.description.slice(0..160) + '...' %>
             <%= link_to t('post.show_more'), post_path(post) %> <br>
           </div>
