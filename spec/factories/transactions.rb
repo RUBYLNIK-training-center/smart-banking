@@ -9,7 +9,7 @@ FactoryBot.define do
     sender_id { 1 }
     user_id { 2 }
     wallet_id { 2 }
-    date { Time.now.to_f }
+    date { Time.current }
     wallet_reciepent { rand(1_111_111_111_111_111..9_999_999_999_999_999) }
   end
 end
