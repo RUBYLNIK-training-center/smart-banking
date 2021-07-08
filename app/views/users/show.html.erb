@@ -44,7 +44,7 @@
           </ul>
     
           <!-- Button trigger modal -->
-            <% if current_user.name!="" && current_user.surname!="" && current_user.passport_number!=""  &&current_user.name!=nil && current_user.surname!=nil && current_user.passport_number!=nil %>
+            <% if user_fields_exist? %>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 <%= t('users.add_wallet')%>
               </button>
