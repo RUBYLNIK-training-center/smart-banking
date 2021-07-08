@@ -1,2 +1,19 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
+<div class="container mt-4">
+	<h1 class="text-center">Transfers history</h1>
+	<p>Find me in app/views/transactions/show.html.erb</p>
+
+	<% @transactions.each do |transaction| %>
+		<h2><%= transaction.status %></h2>
+	<%end%>
+
+
+</div>
+
+<div class="container">
+  <% @transactions.each do |transaction| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+    	<h6 class="mb-0"><%= transaction.status %></h6>
+               
+     </li>
+  <% end %>
+</div>
