@@ -1,19 +1,24 @@
 <div class="container mt-4">
 	<h1 class="text-center">Transfers history</h1>
-	<p>Find me in app/views/transactions/show.html.erb</p>
+	<div class="container">
+  			<% @transactions.each do |transaction| %>
+  				<% if transaction.status==true %>
+  					<h3>Successful transaction! Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></h3>
+  					<p>Total transaction amount: <%= transaction.sum+transaction.fee %> <%= transaction.wallet.currency.name %></p>
+  				<% else %>
+  					<h3>Transaction failed! Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></h3>
+  					<p>Total transaction amount: 0</p>
+  				<% end %>
+  				<p>Transaction type: <%= transaction.transaction_type %></p>
+  				<p>Number of reciepent wallet: <%= transaction.wallet_reciepent %></p>
+  				<p>Transaction amount: <%= transaction.sum %></p>
+  				<p>Transaction comission: <%= transaction.fee %></p>
+  				<p>Transaction date: <%= transaction.date %></p>
+  				<p>Wallet balance: <%= transaction.wallet.amount %> <%= transaction.wallet.currency.name %></p>
+  				
+				<% end %>
 
-	<% @transactions.each do |transaction| %>
-		<h2><%= transaction.status %></h2>
-	<%end%>
-
-
+  </div>
 </div>
 
-<div class="container">
-  <% @transactions.each do |transaction| %>
-    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-    	<h6 class="mb-0"><%= transaction.status %></h6>
-               
-     </li>
-  <% end %>
-</div>
+<%= paginate @transactions %>
