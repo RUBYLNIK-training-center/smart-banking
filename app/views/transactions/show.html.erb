@@ -11,10 +11,10 @@
   			<div class="border mt-3">
   				<div class="ml-1 mt-1">
 	  				<% if transaction.status==true %>
-	  					<h3 class="text-success">Successful transaction! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
+	  					<h3 class="text-success">✓ Successful transaction! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
 	  					<p><strong>Total transaction amount:</strong>  <%= transaction.sum+transaction.fee %> <%= transaction.wallet.currency.name %></p>
 	  				<% else %>
-	  					<h3 class="text-danger">Transaction failed! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
+	  					<h3 class="text-danger">✘ Transaction failed! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
 	  					<p><strong>Total transaction amount:</strong>  0</p>
 	  				<% end %>
 	  				<p><strong>Transaction type:</strong>  <%= transaction.transaction_type %></p>
