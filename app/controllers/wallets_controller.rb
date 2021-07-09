@@ -13,6 +13,10 @@ class WalletsController < ApplicationController
     redirect_to users_url, notice: 'Wallet was successfully created.'
   end
 
+  def show
+    @wallet = Wallet.find(params[:id])
+  end
+
   private
 
   def wallet_params
