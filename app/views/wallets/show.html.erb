@@ -8,9 +8,9 @@
   <div class="container">
     <div class="border mt-3">
       <div class="ml-1 mt-1">
-        <p><strong>Your wallet number</strong>  <%= "#{parse_wallet_number(@wallet.wallet_number)}" %></p>
-        <p><strong>Wallet currency:</strong>  <%= "#{@wallet.currency.name}" %></p>
-        <p><strong>Wallet amount:</strong>  <%= " #{@wallet.amount}" %></p>
+        <p><strong>Your wallet number</strong>  <%= parse_wallet_number(@wallet.wallet_number) %></p>
+        <p><strong>Wallet currency:</strong>  <%= @wallet.currency.name %></p>
+        <p><strong>Wallet amount:</strong>  <%= @wallet.amount %></p>
       </div>
     </div>
     <br>
