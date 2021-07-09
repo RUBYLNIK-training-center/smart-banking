@@ -51,3 +51,24 @@ ru:
     egor: "Егор Воробьев"
     vitaliy: "Виталий Гавриленя"
     contacts_title: "Контакты"
+  transaction:
+    your_transaction: "Ваши транзакции"
+    transaction_type: "Тип транзакции: перевод"
+    write_sum: "Введите сумму"
+    wallet_reciepent: "Введите номер кошелька получателя"
+    comission: "Комиссия:"
+    make_transfer: "Создать транзакцию"
+  transfers_history:
+    title_transfers: "История транзакций"
+    successful_transaction: "Транзакция прошла успешно!"
+    failed_transaction: "Ошибка транзакции!"
+    wallet: "Кошелек:"
+    transaction_amount: "Общая сумма транзакции:"
+    transaction_type: "Тип транзакции:"
+    reciepent_wallet: "Номер кошелька получателя:"
+    transaction_amount: "Сумма транзакции:"
+    transaction_comission: "Комиссия:"
+    transaction_date: "Дата транзакции:"
+    
+
+

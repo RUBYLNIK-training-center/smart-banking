@@ -5,23 +5,24 @@
 </style>
 
 <div class="container mt-4">
-	<h1 class="text-center"><mark>Transfers history</mark></h1>
+	<h1 class="text-center"><mark><%= t('transfers_history.title_transfers')%></mark></h1>
 	<div class="container">
   			<% @transactions.each do |transaction| %>
   			<div class="border mt-3">
   				<div class="ml-1 mt-1">
 	  				<% if transaction.status==true %>
-	  					<h3 class="text-success">✓ Successful transaction! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
-	  					<p><strong>Total transaction amount:</strong>  <%= transaction.sum+transaction.fee %> <%= transaction.wallet.currency.name %></p>
+	  					<h3 class="text-success">✓ <%= t('transfers_history.successful_transaction')%> <em><%= t('transfers_history.wallet')%> <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
+	  					<p><strong><%= t('transfers_history.transaction_amount')%></strong>  <%= transaction.sum+transaction.fee %> <%= transaction.wallet.currency.name %></p>
 	  				<% else %>
-	  					<h3 class="text-danger">✘ Transaction failed! <em>Wallet: <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
-	  					<p><strong>Total transaction amount:</strong>  0</p>
+	  					<h3 class="text-danger">✘ <%= t('transfers_history.failed_transaction')%> <em><%= t('transfers_history.wallet')%> <%= parse_wallet_number(transaction.wallet.wallet_number) %></em></h3>
+	  					<p><strong><%= t('transfers_history.transaction_amount')%></strong>  0</p>
 	  				<% end %>
-	  				<p><strong>Transaction type:</strong>  <%= transaction.transaction_type %></p>
-	  				<p><strong>Number of reciepent wallet:</strong>  <%= parse_wallet_number(transaction.wallet_reciepent) %></p>
-	  				<p><strong>Transaction amount:</strong>  <%= transaction.sum %></p>
-	  				<p><strong>Transaction comission:</strong>  <%= transaction.fee %></p>
-	  				<p><strong>Transaction date:</strong>  <%= transaction.date.strftime("%Y.%m.%d at %I:%M %p") %></p>
+
+	  				<p><strong><%= t('transfers_history.transaction_type')%></strong>  <%= transaction.transaction_type %></p>
+	  				<p><strong><%= t('transfers_history.reciepent_wallet')%></strong>  <%= parse_wallet_number(transaction.wallet_reciepent) %></p>
+	  				<p><strong><%= t('transfers_history.transaction_amount')%></strong>  <%= transaction.sum %></p>
+	  				<p><strong><%= t('transfers_history.transaction_comission')%></strong>  <%= transaction.fee %></p>
+	  				<p><strong><%= t('transfers_history.transaction_date')%></strong>  <%= transaction.date.strftime("%Y.%m.%d at %I:%M %p") %></p>
 	  			</div>
   		  </div>
 				<% end %>
