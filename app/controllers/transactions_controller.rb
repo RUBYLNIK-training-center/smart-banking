@@ -9,10 +9,12 @@ class TransactionsController < ApplicationController
 
   def create
     @wallets = current_user.wallets
-    sender_wallet = Wallet.find(params[:transaction][:wallet_id])
+    sender_wallet = Wallet.find(params[:wallet_id])
+
     reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
-    if TransactionsHelpers.wallet_has_money(sender_wallet.amount, params[:transaction][:sum].to_i) && !reciepent_wallet.nil?
+    if TransactionsHelpers.wallet_has_money(sender_wallet.amount,
+                                            params[:transaction][:sum].to_i) && !reciepent_wallet.nil?
       sender_wallet.freeze!
       TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
