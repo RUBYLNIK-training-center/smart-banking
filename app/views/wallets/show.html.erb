@@ -1,0 +1,22 @@
+<style>
+.ml-1{
+  margin-left: 2%;
+}
+</style>
+<div class="container mt-4">
+  <h1 class="text-center"><mark>Your wallet</mark></h1>
+  <div class="container">
+    <div class="border mt-3">
+      <div class="ml-1 mt-1">
+        <p><strong>Your wallet number</strong>  <%= parse_wallet_number(@wallet.wallet_number) %></p>
+        <p><strong>Wallet currency:</strong>  <%= @wallet.currency.name %></p>
+        <p><strong>Wallet amount:</strong>  <%= @wallet.amount %></p>
+      </div>
+    </div>
+    <br>
+    <div class="mt-5 col-lg-7 col-md-6 col-sm-12 desc">
+      <h5><%= 'Some instruction' %></h6>
+  	  <%= 'Plans for future expansion Later this year, uSky plans to build a 2.4 kilometer (1.5 mile) line in Sharjah, allowing it to run the passenger pod at higher speeds and demonstrate how passenger and cargo pods can be integrated into the same network. According to Hussain Al Mahmoudi, CEO of Sharjah Research Technology and Innovation Park, where uSky\'s test lines are located, the hope is for sky pods to boost the emirate\'s strategy of becoming a sustainable, futuristic hub.' %>
+    </div>
+  </div>
+</div>
