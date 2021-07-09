@@ -37,6 +37,8 @@ ru:
     currency: "Валюта"
     wallet_validation_error: "Параметры имя, фамилия и номер паспорта не могут быть пустыми для создания кошелька!"
     wallet_edit_profile_link: "Добавьте информацию по этой ссылке если желаете."
+    make_transfer: "Создать транзакцию"
+    trasfers_history: "История транзакций"
   about_us:
     about_title: "О нашем проекте"
     why_created_title: "Почему он был создан?"

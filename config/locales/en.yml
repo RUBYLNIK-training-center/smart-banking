@@ -69,6 +69,8 @@ en:
     currency: "Currency"
     wallet_validation_error: "Parameters name, surname and passport number can't be blank for wallet creation!"
     wallet_edit_profile_link: "Add information a click if you like."
+    make_transfer: "Make a transfer"
+    trasfers_history: "Transfers history"
   about_us:
     about_title: "About our project"
     why_created_title: "Why it was created?"
