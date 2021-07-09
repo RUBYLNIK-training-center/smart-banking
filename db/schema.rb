@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_152758) do
+ActiveRecord::Schema.define(version: 2021_07_07_202822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,12 +100,10 @@ ActiveRecord::Schema.define(version: 2021_07_05_152758) do
 
   create_table "services", force: :cascade do |t|
     t.string "name"
-    t.bigint "wallet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_services_on_category_id"
-    t.index ["wallet_id"], name: "index_services_on_wallet_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -153,13 +151,15 @@ ActiveRecord::Schema.define(version: 2021_07_05_152758) do
   create_table "wallets", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
+    t.bigint "wallet_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.boolean "locked"
-    t.bigint "wallet_number"
+    t.bigint "service_id"
     t.boolean "freeze"
     t.index ["currency_id"], name: "index_wallets_on_currency_id"
+    t.index ["service_id"], name: "index_wallets_on_service_id"
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
@@ -170,10 +170,10 @@ ActiveRecord::Schema.define(version: 2021_07_05_152758) do
   add_foreign_key "service_transactions", "services"
   add_foreign_key "service_transactions", "transactions"
   add_foreign_key "services", "categories"
-  add_foreign_key "services", "wallets"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "transactions", "users"
   add_foreign_key "transactions", "wallets"
   add_foreign_key "wallets", "currencies"
+  add_foreign_key "wallets", "services"
   add_foreign_key "wallets", "users"
 end

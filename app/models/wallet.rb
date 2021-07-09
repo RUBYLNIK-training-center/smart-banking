@@ -4,7 +4,8 @@ class Wallet < ApplicationRecord
   before_create :set_wallet_number
 
   belongs_to :currency
-  belongs_to :user
+  belongs_to :user, optional: true
+  belongs_to :service, optional: true
 
   has_many :transactions, dependent: :nullify
 
