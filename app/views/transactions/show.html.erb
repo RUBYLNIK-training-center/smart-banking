@@ -18,11 +18,10 @@
 	  					<p><strong>Total transaction amount:</strong>  0</p>
 	  				<% end %>
 	  				<p><strong>Transaction type:</strong>  <%= transaction.transaction_type %></p>
-	  				<p><strong>Number of reciepent wallet:</strong>  <%= transaction.wallet_reciepent %></p>
+	  				<p><strong>Number of reciepent wallet:</strong>  <%= parse_wallet_number(transaction.wallet_reciepent) %></p>
 	  				<p><strong>Transaction amount:</strong>  <%= transaction.sum %></p>
 	  				<p><strong>Transaction comission:</strong>  <%= transaction.fee %></p>
-	  				<p><strong>Transaction date:</strong>  <%= transaction.date %></p>
-	  				<p><strong>Wallet balance:</strong>  <%= transaction.wallet.amount %> <%= transaction.wallet.currency.name %></p>
+	  				<p><strong>Transaction date:</strong>  <%= transaction.date.strftime("%Y.%m.%d at %I:%M %p") %></p>
 	  			</div>
   		  </div>
 				<% end %>
