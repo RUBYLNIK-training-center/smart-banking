@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     
     get 'home/index'
     get '/about', to: 'home#about'
+    get '/support', to: 'home#support'
     resources :post, only: :show
     root 'home#index'
   end

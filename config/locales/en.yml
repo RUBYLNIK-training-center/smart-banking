@@ -36,6 +36,7 @@ en:
   global:
     menu:
       about_us: "About us"
+      support: "Support"
       sign_in: "Sign In"
       sign_out: "Sign Out"
       sign_up: "Sign Up"
@@ -81,3 +82,5 @@ en:
     egor: "Egor Vorobyov"
     vitaliy: "Vitaly Gavrilenya"
     contacts_title: "Contacts"
+  support:
+    support_title: "Support page"
