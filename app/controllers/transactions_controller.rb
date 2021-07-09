@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
 
   def create
     @wallets = current_user.wallets
-    sender_wallet = Wallet.find(params[:wallet_id])
+    sender_wallet = Wallet.find(params[:transaction][:wallet_id])
 
     reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
