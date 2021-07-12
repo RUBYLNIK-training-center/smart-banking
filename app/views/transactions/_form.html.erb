@@ -5,7 +5,7 @@
   <br/>
   <%= f.text_field :sum, :placeholder => t('transaction.write_sum'), class: "form-control" %>
   <br/>
-  <%= f.text_field :wallet_reciepent, :placeholder => t('transaction.wallet_reciepent'), class: "form-control" %>
+  <%= f.text_field :wallet_reciepent, :value => params[:wallet_reciepent] || @transaction.wallet, :placeholder => t('transaction.wallet_reciepent'), class: "form-control" %>
   <%=t('transaction.comission')%> <%= f.label @transaction.fee, "#{@transaction.fee}", class: "form-label" %>
     <br/>
     <%= f.submit t('transaction.make_transfer'), class: "btn btn-primary" %>

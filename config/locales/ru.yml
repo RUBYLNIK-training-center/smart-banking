@@ -69,4 +69,5 @@ ru:
     transaction_amount: "Сумма транзакции:"
     transaction_comission: "Комиссия:"
     transaction_date: "Дата транзакции:"
-    
+  services:
+    make_transfer: "Оплата сервиса"
