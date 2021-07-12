@@ -101,3 +101,7 @@ en:
     transaction_amount: "Transaction amount:"
     transaction_comission: "Transaction comission:"
     transaction_date: "Transaction date:"
+  services:
+    make_transfer: "Pay for service"
+
+
