@@ -5,7 +5,7 @@
   <br/>
   <%= f.text_field :sum, :placeholder => t('transaction.write_sum'), class: "form-control" %>
   <br/>
-  <% if !@service.nil? %>
+  <% if !@service.blank? %>
     <p><%= "Service wallet number which get paid: #{@service.wallet.wallet_number}" %></p>
   <% else %>
     <%= f.text_field :wallet_reciepent, :value => params[:wallet_reciepent] || @transaction.wallet, :placeholder => t('transaction.wallet_reciepent'), class: "form-control" %>

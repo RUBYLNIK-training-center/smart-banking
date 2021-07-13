@@ -3,7 +3,7 @@
     <%= t('transaction.your_transaction') %>
   </h1>
   <div class="col-lg-12 mt-4">
-    <% if !@service.nil? %>
+    <% if !@service.blank? %>
       <p><%= "Service which you have chosen: #{@service.name}" %></p>
     <% end %>
     

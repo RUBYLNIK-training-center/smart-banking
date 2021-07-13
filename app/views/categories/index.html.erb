@@ -12,7 +12,7 @@
           <div class="accordion-body">
             <ul>
               <% category.services.each do |service| %>
-                <%= link_to service.name, new_service_transaction_url({:wallet_reciepent => service.wallet.wallet_number, :service_id => service.id}) %><div class="dropdown-divider"></div>
+                <%= link_to service.name, new_service_transaction_path({:wallet_reciepent => service.wallet.wallet_number, :service_id => service.id}) %><div class="dropdown-divider"></div>
               <% end %>
             </ul>
           </div>
