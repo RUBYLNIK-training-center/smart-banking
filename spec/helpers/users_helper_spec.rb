@@ -11,5 +11,13 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '.user_fields_exist?' do
+    let(:user) do
+      User.create(email: 'test13@mail.ru', name: 'test', surname: 'test', passport_number: 'MP18237462')
+    end
+
+    context 'when user fields were passed' do
+      it { expect(user_fields_exist?(user)).to eq(true) }
+    end
+  end
 end
