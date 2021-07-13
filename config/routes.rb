@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     resource :transactions
     resources :categories
     
+    resources :services
+    
+    resources :services do
+      resources :transactions, shallow: true
+    end
+
     get 'home/index'
     get '/about', to: 'home#about'
     resources :post, only: :show

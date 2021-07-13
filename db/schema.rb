@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_202822) do
+ActiveRecord::Schema.define(version: 2021_07_13_152546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 2021_07_07_202822) do
     t.bigint "wallet_id", null: false
     t.datetime "date"
     t.bigint "wallet_reciepent"
+    t.bigint "service_id"
+    t.index ["service_id"], name: "index_transactions_on_service_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
     t.index ["wallet_id"], name: "index_transactions_on_wallet_id"
   end
@@ -151,13 +153,13 @@ ActiveRecord::Schema.define(version: 2021_07_07_202822) do
   create_table "wallets", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
-    t.bigint "wallet_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.boolean "locked"
-    t.bigint "service_id"
+    t.bigint "wallet_number"
     t.boolean "freeze"
+    t.bigint "service_id"
     t.index ["currency_id"], name: "index_wallets_on_currency_id"
     t.index ["service_id"], name: "index_wallets_on_service_id"
     t.index ["user_id"], name: "index_wallets_on_user_id"
@@ -171,6 +173,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_202822) do
   add_foreign_key "service_transactions", "transactions"
   add_foreign_key "services", "categories"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "transactions", "services"
   add_foreign_key "transactions", "users"
   add_foreign_key "transactions", "wallets"
   add_foreign_key "wallets", "currencies"
