@@ -58,4 +58,3 @@ class TransactionsController < ApplicationController
     params.require(:transaction).permit(:transaction_type, :sum, :fee, :wallet_reciepent, :service_id)
   end
 end
-

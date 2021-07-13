@@ -52,7 +52,7 @@ RSpec.describe TransactionsHelpers, type: :concern do
       it { expect(described_class.wallet_has_money(wallet.amount, 5)).to eq(false) }
     end
   end
-  
+
   describe '.find_by_service_or_wallet_number' do
     let(:wallet) { described_class.find_by_service_or_wallet_number(1, nil) }
     let(:wallet2) { described_class.find_by_service_or_wallet_number(nil, 7_771_895_896_655_414) }

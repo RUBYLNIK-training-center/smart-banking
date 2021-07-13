@@ -14,8 +14,8 @@ module TransactionsHelpers
   def self.wallet_has_money(amount, quantity)
     amount > (quantity + 0.99)
   end
-  
-    def self.service(service_id)
+
+  def self.service(service_id)
     Service.find(service_id) unless service_id.nil?
   end
 
