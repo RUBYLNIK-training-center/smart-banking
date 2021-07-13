@@ -1,12 +1,17 @@
-<%= form_for(transaction) do |f| %>
+<%= form_for([@service, transaction]) do |f| %>
   <%= f.label :transaction_type, t('transaction.transaction_type'), class: "form-control" %>
   <br/>
   <%= f.select :wallet_id, @wallets.map {|el| [el.wallet_number, el.id] } %>
   <br/>
   <%= f.text_field :sum, :placeholder => t('transaction.write_sum'), class: "form-control" %>
   <br/>
-  <%= f.text_field :wallet_reciepent, :value => params[:wallet_reciepent] || @transaction.wallet, :placeholder => t('transaction.wallet_reciepent'), class: "form-control" %>
+  <% if !@service.blank? %>
+    <p><%= "Service wallet number which get paid: #{@service.wallet.wallet_number}" %></p>
+  <% else %>
+    <%= f.text_field :wallet_reciepent, :value => params[:wallet_reciepent] || @transaction.wallet, :placeholder => t('transaction.wallet_reciepent'), class: "form-control" %>
+  <% end %>
   <%=t('transaction.comission')%> <%= f.label @transaction.fee, "#{@transaction.fee}", class: "form-label" %>
     <br/>
     <%= f.submit t('transaction.make_transfer'), class: "btn btn-primary" %>
   <% end %>
+

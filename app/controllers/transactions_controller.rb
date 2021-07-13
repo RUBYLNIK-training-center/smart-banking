@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new(fee: 0.99)
+    @service = TransactionsHelpers.service(params[:service_id])
     @wallets = current_user.wallets
   end
 
@@ -11,7 +12,8 @@ class TransactionsController < ApplicationController
     @wallets = current_user.wallets
     sender_wallet = Wallet.find(params[:transaction][:wallet_id])
 
-    reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
+    reciepent_wallet = TransactionsHelpers.find_by_service_or_wallet_number(params[:service_id],
+                                                                            params[:transaction][:wallet_reciepent])
 
     if TransactionsHelpers.wallet_has_money(sender_wallet.amount,
                                             params[:transaction][:sum].to_i) && !reciepent_wallet.nil?
@@ -19,8 +21,6 @@ class TransactionsController < ApplicationController
       TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
       reciepent_wallet.freeze!
-
-      reciepent_wallet = Wallet.find_by_wallet_number(params[:transaction][:wallet_reciepent])
 
       TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
 
@@ -32,7 +32,8 @@ class TransactionsController < ApplicationController
                                                       user_id: reciepent_wallet.user_id,
                                                       wallet_id: params[:transaction][:wallet_id],
                                                       date: Time.current,
-                                                      wallet_reciepent: params[:transaction][:wallet_reciepent])
+                                                      wallet_reciepent: reciepent_wallet.wallet_number,
+                                                      service_id: params[:service_id])
       unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     elsif reciepent_wallet.nil?
@@ -54,6 +55,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:transaction_type, :sum, :fee, :wallet_reciepent)
+    params.require(:transaction).permit(:transaction_type, :sum, :fee, :wallet_reciepent, :service_id)
   end
 end
