@@ -22,7 +22,9 @@ class TransactionsController < ApplicationController
 
       reciepent_wallet.freeze!
 
-      TransactionsHelpers.money_transfer(reciepent_wallet, params[:transaction][:sum])
+      sum = WalletsHelpers.currency_convertation(sender_wallet, reciepent_wallet, params[:transaction][:sum])
+
+      TransactionsHelpers.money_transfer(reciepent_wallet, sum.to_f)
 
       @transaction = current_user.transactions.create(status: true,
                                                       transaction_type: 'Banking',

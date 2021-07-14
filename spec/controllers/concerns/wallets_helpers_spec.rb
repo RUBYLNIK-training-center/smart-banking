@@ -44,4 +44,34 @@ RSpec.describe WalletsHelpers, type: :concern do
       it { expect(wallet.freeze).to eq(false) }
     end
   end
+
+  def self.currency_convertation(sender_wallet, reciepent_wallet, sum)
+    if sender_wallet.currency == reciepent_wallet.currency
+      sum
+    else
+      rate = sender_wallet.currency.rate
+      usd = sum.to_f / rate
+      reciepent_wallet.currency.rate * usd
+    end
+  end
+
+  describe '.currency_convertation' do
+    let(:wallet2) { FactoryBot.create(:wallet) }
+    let(:wallet3) { FactoryBot.create(:wallet) }
+
+    before do
+      usd = Currency.create(name: 'USD', rate: '1.000000')
+      wallet.currency =  Currency.create(name: 'BYN', rate: '2.530000')
+      wallet2.currency = usd
+      wallet3.currency = usd
+    end
+
+    context 'when currencies are different' do
+      it { expect(described_class.currency_convertation(wallet2, wallet, 1)).to eq(2.53) }
+    end
+
+    context 'when currencies are the same' do
+      it { expect(described_class.currency_convertation(wallet2, wallet3, 1)).to eq(1) }
+    end
+  end
 end
