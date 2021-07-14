@@ -65,4 +65,14 @@ RSpec.describe TransactionsHelpers, type: :concern do
       it { expect(wallet2).to eq(Wallet.find_by_service_id(7_771_895_896_655_414)) }
     end
   end
+
+  describe '.service' do
+    context 'when service was found' do
+      it { expect(described_class.service(5)).to eq(Service.find(5)) }
+    end
+
+    context 'when service was not found' do
+      it { expect(described_class.service(nil)).to eq(nil) }
+    end
+  end
 end
