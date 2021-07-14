@@ -7,6 +7,16 @@ module WalletsHelpers
     Currency.all
   end
 
+  def self.currency_convertation(sender_wallet, reciepent_wallet, sum)
+    if sender_wallet.currency == reciepent_wallet.currency
+      sum
+    else
+      rate = sender_wallet.currency.rate
+      usd = sum.to_f / rate
+      reciepent_wallet.currency.rate * usd
+    end
+  end
+
   def freeze!
     update(freeze: true)
   end
