@@ -18,6 +18,10 @@ RSpec.describe '/users', type: :request do
 
   before { user }
 
+  describe '.random_id' do
+    it { expect(valid_attributes[:id]).to eq('1') }
+  end
+
   describe 'GET /edit' do
     context 'when an user was redirected to edit profile page' do
       it 'render the edit user page', :aggregate_failures do

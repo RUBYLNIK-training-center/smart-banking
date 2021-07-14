@@ -6,6 +6,12 @@ RSpec.describe User, type: :model do
   let(:user) { described_class.from_omniauth(access_token) }
   let(:access_token) { AccessToken.new('test@mail.ru', 'test', 'test') }
 
+  before do
+    user.name = 'test'
+    user.surname = 'test'
+    user.save
+  end
+
   describe 'associations' do
     it { is_expected.to have_many(:wallets) }
     it { is_expected.to have_many(:subscriptions) }
@@ -30,7 +36,7 @@ RSpec.describe User, type: :model do
 
   describe '.from_omniauth' do
     let(:my_test) do
-      described_class.first_or_create(email: 'test11@mail.ru', name: 'test', surname: 'test')
+      described_class.first_or_create(email: 'test11@mail.ru', name: 'test', surname: 'test', password: 'password')
     end
 
     it { expect(user).to eq(my_test) }
