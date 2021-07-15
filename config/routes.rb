@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     
     resources :wallets
     resource :users
-    resource :transactions
+    resources :transactions
     resources :categories
     
     resources :services

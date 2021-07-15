@@ -101,6 +101,7 @@ en:
     transaction_amount: "Transaction amount:"
     transaction_comission: "Transaction comission:"
     transaction_date: "Transaction date:"
+    download_receipt: "Download PDF receipt"
   services:
     make_transfer: "Pay for service"
 

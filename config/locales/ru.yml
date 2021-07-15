@@ -69,5 +69,6 @@ ru:
     transaction_amount: "Сумма транзакции:"
     transaction_comission: "Комиссия:"
     transaction_date: "Дата транзакции:"
+    download_receipt: "Скачать чек в PDF"
   services:
     make_transfer: "Оплата сервиса"
