@@ -48,6 +48,9 @@ gem 'active_storage_validations', '~> 0.9.5'
 gem 'mini_magick', '~> 4.11'
 gem 'chartkick', '~> 4.0', '>= 4.0.5'
 
+gem 'redis-rails'
+gem 'telegram-bot'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
