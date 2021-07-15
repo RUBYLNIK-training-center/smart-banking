@@ -14,3 +14,26 @@ ActiveStorage.start()
 
 import 'bootstrap'
 import './src/application.scss'
+
+import {
+    enable as enableDarkMode,
+    disable as disableDarkMode,
+    isEnabled as isDarkReaderEnabled
+} from 'darkreader';
+
+document.addEventListener("turbolinks:load", function() {
+    let button = document.getElementById("changeTheme")
+    button.onclick = () => {
+        if(isDarkReaderEnabled()) {
+            disableDarkMode();
+            button.textContent = 'DarkTheme'
+        } else {
+            enableDarkMode({
+                brightness: 100,
+                contrast: 90,
+                sepia: 10,
+            });
+            button.textContent = 'LightTheme'
+        }
+    }
+  });

@@ -38,6 +38,8 @@ ru:
     currency: "Валюта"
     wallet_validation_error: "Параметры имя, фамилия и номер паспорта не могут быть пустыми для создания кошелька!"
     wallet_edit_profile_link: "Добавьте информацию по этой ссылке если желаете."
+    make_transfer: "Создать транзакцию"
+    trasfers_history: "История транзакций"
   about_us:
     about_title: "О нашем проекте"
     why_created_title: "Почему он был создан?"
@@ -52,3 +54,23 @@ ru:
     contacts_title: "Контакты"
   support:
     support_title: "Страница поддержки"
+  transaction:
+    your_transaction: "Ваши транзакции"
+    transaction_type: "Тип транзакции: перевод"
+    write_sum: "Введите сумму"
+    wallet_reciepent: "Введите номер кошелька получателя"
+    comission: "Комиссия:"
+    make_transfer: "Создать транзакцию"
+  transfers_history:
+    title_transfers: "История транзакций"
+    successful_transaction: "Транзакция прошла успешно!"
+    failed_transaction: "Ошибка транзакции!"
+    wallet: "Кошелек:"
+    transaction_amount: "Общая сумма транзакции:"
+    transaction_type: "Тип транзакции:"
+    reciepent_wallet: "Номер кошелька получателя:"
+    transaction_amount: "Сумма транзакции:"
+    transaction_comission: "Комиссия:"
+    transaction_date: "Дата транзакции:"
+  services:
+    make_transfer: "Оплата сервиса"
