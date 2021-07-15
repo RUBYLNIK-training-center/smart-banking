@@ -4,6 +4,7 @@ ru:
   global:
     menu:
       about_us: "О нас"
+      support: "Поддержка"
       sign_in: "Вход"
       sign_out: "Выход"
       sign_up: "Зарегистрироваться"
@@ -51,6 +52,8 @@ ru:
     egor: "Егор Воробьев"
     vitaliy: "Виталий Гавриленя"
     contacts_title: "Контакты"
+  support:
+    support_title: "Страница поддержки"
   transaction:
     your_transaction: "Ваши транзакции"
     transaction_type: "Тип транзакции: перевод"
