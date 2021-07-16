@@ -5,7 +5,7 @@
 </style>
 
 <div class="container mt-4">
-	<h1 class="text-center"><mark><%= t('transfers_history.title_transfers')%></mark></h1>
+	<h1 class="text-center"><%= t('transfers_history.title_transfers')%></h1>
 	<div class="container">
   			<% @transactions.each do |transaction| %>
   			<div class="border mt-3">
@@ -25,7 +25,6 @@
 	  			</div>
   		  </div>
 				<% end %>
-
   </div>
 </div>
 <div class="mt-5">

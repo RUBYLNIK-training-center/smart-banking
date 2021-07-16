@@ -153,11 +153,11 @@ ActiveRecord::Schema.define(version: 2021_07_13_152546) do
   create_table "wallets", force: :cascade do |t|
     t.bigint "currency_id", null: false
     t.decimal "amount"
+    t.bigint "wallet_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.boolean "locked"
-    t.bigint "wallet_number"
     t.boolean "freeze"
     t.bigint "service_id"
     t.index ["currency_id"], name: "index_wallets_on_currency_id"
@@ -180,4 +180,3 @@ ActiveRecord::Schema.define(version: 2021_07_13_152546) do
   add_foreign_key "wallets", "services"
   add_foreign_key "wallets", "users"
 end
-
