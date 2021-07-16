@@ -9,14 +9,12 @@ class TransactionsController < ApplicationController
   def show
     @transaction = current_user.transactions.find(params[:id])
 
-    respond_to do |format|
-      format.pdf {
-        send_data @transaction.receipt.render,
-        filename: "#{@transaction.created_at.strftime("%Y-%m-%d")}-smartbanking-receipt.pdf",
-        type: "application/pdf",
-        disposition: :inline
-      }
-    end
+    send_data(
+      @transaction.receipt.render,
+      filename: "#{@transaction.created_at.strftime("%Y-%m-%d")}-smartbanking-receipt.pdf",
+      type: "application/pdf",
+      disposition: :inline
+    )
   end
 
   def new
@@ -56,9 +54,9 @@ class TransactionsController < ApplicationController
       unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     elsif reciepent_wallet.nil?
-      redirect_to new_transactions_path, notice: 'You have not completed all the fields!'
+      redirect_to new_transaction_path, notice: 'You have not completed all the fields!'
     else
-      redirect_to new_transactions_path, notice: 'Insufficient funds for transfer!'
+      redirect_to new_transaction_path, notice: 'Insufficient funds for transfer!'
     end
   end
 
