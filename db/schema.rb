@@ -158,8 +158,8 @@ ActiveRecord::Schema.define(version: 2021_07_13_152546) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.boolean "locked"
-    t.boolean "freeze"
     t.bigint "service_id"
+    t.boolean "freeze"
     t.index ["currency_id"], name: "index_wallets_on_currency_id"
     t.index ["service_id"], name: "index_wallets_on_service_id"
     t.index ["user_id"], name: "index_wallets_on_user_id"

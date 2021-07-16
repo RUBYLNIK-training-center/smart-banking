@@ -2,6 +2,23 @@ class TransactionsController < ApplicationController
   include TransactionsHelpers
   include WalletsHelpers
 
+  def index
+    @transactions = current_user.transactions.includes([:wallet]).page params[:page]
+  end
+
+  def show
+    @transaction = current_user.transactions.find(params[:id])
+
+    respond_to do |format|
+      format.pdf {
+        send_data @transaction.receipt.render,
+        filename: "#{@transaction.created_at.strftime("%Y-%m-%d")}-smartbanking-receipt.pdf",
+        type: "application/pdf",
+        disposition: :inline
+      }
+    end
+  end
+
   def new
     @transaction = Transaction.new(fee: 0.99)
     @service = TransactionsHelpers.service(params[:service_id])
@@ -43,10 +60,6 @@ class TransactionsController < ApplicationController
     else
       redirect_to new_transactions_path, notice: 'Insufficient funds for transfer!'
     end
-  end
-
-  def show
-    @transactions = current_user.transactions.page params[:page]
   end
 
   private
