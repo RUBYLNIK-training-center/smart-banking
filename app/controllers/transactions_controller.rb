@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
                                                                             params[:transaction][:wallet_reciepent])
 
     if TransactionsHelpers.wallet_has_money(sender_wallet.amount,
-                                            params[:transaction][:sum].to_i) && !reciepent_wallet.nil?
+                                            params[:transaction][:sum].to_i) && reciepent_wallet.present? && params[:transaction][:sum].present?
       sender_wallet.freeze!
       TransactionsHelpers.withdrawal_of_funds(sender_wallet, params[:transaction][:sum])
 
@@ -53,7 +53,7 @@ class TransactionsController < ApplicationController
                                                       service_id: params[:service_id])
       unfreeze_wallets(sender_wallet, reciepent_wallet)
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
-    elsif reciepent_wallet.nil?
+    elsif reciepent_wallet.nil? || params[:transaction][:sum].empty?
       redirect_to new_transaction_path, notice: 'You have not completed all the fields!'
     else
       redirect_to new_transaction_path, notice: 'Insufficient funds for transfer!'
