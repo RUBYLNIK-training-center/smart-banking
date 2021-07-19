@@ -26,6 +26,7 @@
                   <%= f.file_field :avatar, required: true, class: "form-control" %>
                   <br/>
                   <%= f.submit t('users.upload_image'), class: "btn btn-primary" %>
+                  <button id="changeTheme", class="btn btn-primary">Dark mode</button>
                  <% end %>
               </div>
             </div>
@@ -38,7 +39,7 @@
             <% @wallets.each do |wallet| %>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><%= link_to parse_wallet_number(wallet.wallet_number), wallet_url(wallet) %></h6>
-                <span class="text-secondary"><%= "#{current_user.name}" %></span>
+                <span class="text-secondary"><%= "#{wallet.amount} " %><small><%= "#{wallet.currency.name} " %></small></span>
               </li>
             <% end %>
           </ul>
@@ -139,10 +140,10 @@
           </div>
 
           <div class='mt-3 ml-3'>
-              <%= link_to t('users.make_transfer'), new_transaction_path, class: "btn btn-info" %>
-               <%= link_to t('services.make_transfer'), categories_path, class: "btn btn-info" %>
+              <%= link_to t('users.make_transfer'), new_transaction_path, class: "btn btn-primary" %>
+               <%= link_to t('services.make_transfer'), categories_path, class: "btn btn-primary" %>
               <a class='ml-1'>
-                <%= link_to t('users.trasfers_history'), transactions_path, class: "btn btn-success" %>
+                <%= link_to t('users.trasfers_history'), transactions_path, class: "btn btn-primary" %>
               </a>
           </div>
         
