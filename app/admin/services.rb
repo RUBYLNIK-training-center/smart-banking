@@ -1,6 +1,6 @@
 ActiveAdmin.register Service do
   before_create do |service|
-    service.wallet.amount = 0
+    service&.wallet&.amount = 0
   end
   includes(:category, wallet: :currency)
 
