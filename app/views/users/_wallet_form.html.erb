@@ -1,5 +1,5 @@
 <%= form_for(@wallet) do |f| %>
-  <%= f.select :currency_id, @currencies.map {|el| [el.name, el.id] } %>
+  <%= select_tag :currency_id, options_from_collection_for_select(@currencies, "id", "name", params[:currency_id]), class: "form-control" %>
   <div class="mt-3">
    <%= f.submit 'Create wallet', class: "btn btn-primary" %>
   </div>

@@ -1,7 +1,7 @@
 <%= form_for([@service, transaction]) do |f| %>
   <%= f.label :transaction_type, t('transaction.transaction_type'), class: "form-control" %>
   <br/>
-  <%= f.select :wallet_id, @wallets.map {|el| [el.wallet_number, el.id] } %>
+  <%= select_tag :wallet_id, options_from_collection_for_select(@wallets, "id", "wallet_number", params[:wallet_id]), class: "form-control" %>
   <br/>
   <%= f.text_field :sum, :placeholder => t('transaction.write_sum'), class: "form-control" %>
   <br/>
