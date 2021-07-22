@@ -23,7 +23,6 @@ Don't forget to clean crontab up after you're done: `bundle exec whenever --clea
 We are using [capistrano](https://github.com/capistrano/capistrano) for deployment
 
 * Add your ssh key to production server: `ssh-copy-id <deploy-user>@<deploy-ip>`
-* Stop puma: `bundle exec cap production puma:stop`
 * Run deploy: `bundle exec cap production deploy`
 
 ### Our team
