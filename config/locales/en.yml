@@ -65,6 +65,8 @@ en:
     upload_image: "Upload image"
     your_wallets: "Your wallets:"
     add_wallet: "Add wallet"
+    currency_rates: "Currency rates at this moment:"
+    your_transactions: "Your transactions:"
     email: "Email"
     edit: "Edit"
     currency: "Currency"
