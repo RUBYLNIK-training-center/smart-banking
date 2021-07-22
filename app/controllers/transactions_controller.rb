@@ -11,8 +11,8 @@ class TransactionsController < ApplicationController
 
     send_data(
       @transaction.receipt.render,
-      filename: "#{@transaction.created_at.strftime("%Y-%m-%d")}-smartbanking-receipt.pdf",
-      type: "application/pdf",
+      filename: "#{@transaction.created_at.strftime('%Y-%m-%d')}-smartbanking-receipt.pdf",
+      type: 'application/pdf',
       disposition: :inline
     )
   end
@@ -25,7 +25,7 @@ class TransactionsController < ApplicationController
 
   def create
     @wallets = current_user.wallets
-    sender_wallet = Wallet.find(params[:transaction][:wallet_id])
+    sender_wallet = Wallet.find(params[:wallet_id])
 
     reciepent_wallet = TransactionsHelpers.find_by_service_or_wallet_number(params[:service_id],
                                                                             params[:transaction][:wallet_reciepent])
@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
                                                       fee: 0.99,
                                                       sender_id: sender_wallet.user_id,
                                                       user_id: reciepent_wallet.user_id,
-                                                      wallet_id: params[:transaction][:wallet_id],
+                                                      wallet_id: params[:wallet_id],
                                                       date: Time.current,
                                                       wallet_reciepent: reciepent_wallet.wallet_number,
                                                       service_id: params[:service_id])
