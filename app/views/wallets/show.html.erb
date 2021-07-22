@@ -19,4 +19,16 @@
   	  <%= 'Plans for future expansion Later this year, uSky plans to build a 2.4 kilometer (1.5 mile) line in Sharjah, allowing it to run the passenger pod at higher speeds and demonstrate how passenger and cargo pods can be integrated into the same network. According to Hussain Al Mahmoudi, CEO of Sharjah Research Technology and Innovation Park, where uSky\'s test lines are located, the hope is for sky pods to boost the emirate\'s strategy of becoming a sustainable, futuristic hub.' %>
     </div>
   </div>
+      <br/>
+    <h4><%= t('users.currency_rates') %></h4>
+    <div class="card">
+      <%= bar_chart Currency.pluck(:name, :rate) %>
+    </div>
+    <br/>
+    <h4><%= t('users.your_transactions') %></h4>
+    <div class="card">
+      <%= bar_chart Transaction.pluck(:wallet_reciepent, :sum) %>
+    </div>
+      <br/>
+  </div>
 </div>
