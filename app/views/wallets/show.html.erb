@@ -27,7 +27,7 @@
     <br/>
     <h4><%= t('users.your_transactions') %></h4>
     <div class="card">
-      <%= bar_chart Transaction.pluck(:wallet_reciepent, :sum) %>
+      <%= bar_chart current_user.transactions.pluck(:wallet_reciepent, :sum) %>
     </div>
       <br/>
   </div>
