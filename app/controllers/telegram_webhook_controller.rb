@@ -40,6 +40,7 @@ class TelegramWebhookController < Telegram::Bot::UpdatesController
   end
 
   def show_faq
-    respond_with :message, text: 'FAQ HERE', parse_mode: :Markdown
+    respond_with :message,
+                 text: 'You can write here if you need help and be sure to get answers to all your questions. If you have any problems, we will solve them as soon as possible.', parse_mode: :Markdown
   end
 end
