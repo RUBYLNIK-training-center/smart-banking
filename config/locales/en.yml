@@ -87,6 +87,13 @@ en:
     vitaliy: "Vitaly Gavrilenya"
     contacts_title: "Contacts"
   support:
+    support_desc: "Plans for future expansion Later this year, uSky plans to build a 2.4 kilometer (1.5 mile) line in Sharjah, allowing it to run the passenger pod at higher speeds and demonstrate how passenger and cargo pods can be integrated into the same network. According to Hussain Al Mahmoudi, CEO of Sharjah Research Technology and Innovation Park, where uSky's test lines are located, the hope is for sky pods to boost the emirate's strategy of becoming a sustainable, futuristic hub."
+    small_info: "Plans for future expansion Later this year, uSky plans to build a 2.4 kilometer (1.5 mile) line in Sharjah, allowing it to run the passenger pod at higher speeds and demonstrate how passenger and cargo pods can be integrated into the same network. According to Hussain Al Mahmoudi, CEO of Sharjah Research Technology and Innovation Park, where uSky's test lines are located, the hope is for sky pods to boost the emirate's strategy of becoming a sustainable, futuristic hub."
+    faq: "Plans for future expansion Later this year, uSky plans to build a 2.4 kilometer (1.5 mile) line in Sharjah, allowing it to run the passenger pod at higher speeds and demonstrate how passenger and cargo pods can be integrated into the same network. According to Hussain Al Mahmoudi, CEO of Sharjah Research Technology and Innovation Park, where uSky's test lines are located, the hope is for sky pods to boost the emirate's strategy of becoming a sustainable, futuristic hub."
+    instruction: "Instruction"
+    info_title: "Small info about us"
+    faq_title: "You can write to our telegram bot with your questions"
+    tg_bot: "Our telegram bot: "
     support_title: "Support page"
   transaction:
     your_transaction: "Your transaction"
