@@ -47,6 +47,8 @@ gem "faraday", "~> 1.4"
 gem 'active_storage_validations', '~> 0.9.5'
 gem 'mini_magick', '~> 4.11'
 gem 'chartkick', '~> 4.0', '>= 4.0.5'
+gem "telegram-bot", "~> 0.15.4"
+gem "redis-rails", "~> 5.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
